@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <head>
 
@@ -22,7 +25,10 @@
 <!-- Custom styles for this template-->
 <link href="resources/Static/css/sb-admin-2.min.css" rel="stylesheet">
 
-<script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js" charset="UTF-8"></script></head>
+<script type="text/javascript"
+	src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js"
+	charset="UTF-8"></script>
+</head>
 
 <body id="page-top">
 
@@ -39,7 +45,7 @@
 				class="sidebar-brand d-flex align-items-center justify-content-center"
 				href="index.html">
 				<div class="sidebar-brand-icon rotate-n-15">
-				<i class="fas fa-anchor"></i>
+					<i class="fas fa-anchor"></i>
 				</div>
 				<div class="sidebar-brand-text mx-3">
 					Inca Mar <sup>S.A.C.</sup>
@@ -357,128 +363,58 @@
 
 					<!-- Content Row -->
 					<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="lstclima" var="clima"
+							value="#{climaController.listaClimas}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
 
-						<!-- Earnings (Monthly) Card Example -->
-						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-primary shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div
-												class="text-xl font-weight-bold text-primary text-uppercase mb-1"><a href="index2.html">Clima</a></div>
-											<div class="h5 mb-0 font-weight-bold text-gray-400">Gestionar el estado del Clima</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-anchor fa-spin"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+							<p:column headerText="Id" sortBy="#{clima.c_Clima}">
+								<h:outputText value="#{clima.c_Clima}" />
+							</p:column>
 
-						<!-- Earnings (Monthly) Card Example -->
-						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-success shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div
-												class="text-xl font-weight-bold text-success text-uppercase mb-1">
-												<a href="listproveedor.xhtml">Proveedor</a></div>
-											<div class="h5 mb-0 font-weight-bold text-gray-400">Gestion de Proovedores</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-anchor fa-spin"></i>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Earnings (Monthly) Card Example -->
-						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-info shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div
-												class="text-xl font-weight-bold text-info text-uppercase mb-1"><a href="listtipopesca.xhtml">Tipo de Pesca</a></div>
-											<div class="row no-gutters align-items-center">
-												<div class="h5 mb-0 font-weight-bold text-gray-400">Gestion de Tipo de Pesca</div>
-												
-											</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-anchor fa-spin"></i>
-
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!-- Pending Requests Card Example -->
-						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-warning shadow h-100 py-2">
-								<div class="card-body">
-									<div class="row no-gutters align-items-center">
-										<div class="col mr-2">
-											<div
-												class="text-xl font-weight-bold text-warning text-uppercase mb-1"><a href="listpuerto.xhtml">Puerto</a></div>
-											<div class="h5 mb-0 font-weight-bold text-gray-400">Gestion de Puertos</div>
-										</div>
-										<div class="col-auto">
-											<i class="fas fa-anchor fa-spin"></i>
-
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-
+							<p:column headerText="Nombre" sortBy="#{clima.n_Clima}">
+								<h:outputText value="#{clima.n_Clima}" />
+							</p:column>
+							<p:column headerText="Fecha " sortBy="#{clima.d_Creacion}">
+								<h:outputText value="#{clima.d_Creacion}">
+									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
+								</h:outputText>
+							</p:column>
+							<p:column headerText="Operacion">
+							<h:commandLink action="ListClima" value="Eliminar"
+									actionListener="#{climaController.eliminar(clima)}" />
+								
+							</p:column>
+						</p:dataTable>
 					</div>
-					<div class="card border-left-primary shadow h-100 py-2">
-						<div class="card-body">
-							<div class="row no-gutters align-items-center">
-								<div class="col mr-2">
-									<div
-										class="text-xl font-weight-bold text-primary text-uppercase mb-1"><a href="listpuesto.xhtml">Puesto</a></div>
-									<div class="h5 mb-0 font-weight-bold text-gray-400">Gestion de Puestos</div>
-								</div>
-								<div class="col-auto">
-
-									<i class="fas fa-anchor fa-spin"></i>
+				</div>
+			</div>
+				</div>
+				<!-- Content Row -->
 
 
-								</div>
-							</div>
-						</div>
 
-					</div>
+				<!-- Bootstrap core JavaScript-->
+				<script
+					src="resources/Static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-					<!-- Content Row -->
+				<!-- Core plugin JavaScript-->
+				<script
+					src="resources/Static/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-					
+				<!-- Custom scripts for all pages-->
+				<script src="resources/Static/js/sb-admin-2.min.js"></script>
 
-	<!-- Bootstrap core JavaScript-->
-	<script
-		src="resources/Static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+				<!-- Page level plugins -->
+				<script src="resources/Static/vendor/chart.js/Chart.min.js"></script>
 
-	<!-- Core plugin JavaScript-->
-	<script
-		src="resources/Static/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-	<!-- Custom scripts for all pages-->
-	<script src="resources/Static/js/sb-admin-2.min.js"></script>
-
-	<!-- Page level plugins -->
-	<script src="resources/Static/vendor/chart.js/Chart.min.js"></script>
-
-	<!-- Page level custom scripts -->
-	<script src="resources/Static/js/demo/chart-area-demo.js"></script>
-	<script src="resources/Static/js/demo/chart-pie-demo.js"></script>
-
+				<!-- Page level custom scripts -->
+				<script src="resources/Static/js/demo/chart-area-demo.js"></script>
+				<script src="resources/Static/js/demo/chart-pie-demo.js"></script>
 </body>
 
 </html>
