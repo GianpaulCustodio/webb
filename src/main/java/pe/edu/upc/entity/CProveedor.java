@@ -25,9 +25,11 @@ public class CProveedor implements Serializable{
 	
 	@Column(name = "N_Proveedor", nullable = false, length = 50)
 	private String N_Proveedor;
+	@Column(name = "D_Creacion", nullable = false, length = 50)
 	private Date D_Creacion;
+	@Column(name = "F_Eliminar", nullable = false, length = 50)
 	private Boolean F_Eliminar;
-	private int cod_guardar;
+
 	public CProveedor(int iD_Proveedor, int c_Proveedor, String n_Proveedor, Date d_Creacion, Boolean f_Eliminar) {
 		super();
 	
@@ -63,12 +65,6 @@ public class CProveedor implements Serializable{
 	}
 	public void setF_Eliminar(Boolean f_Eliminar) {
 		F_Eliminar = f_Eliminar;
-	}
-	public int getCod_guardar() {
-		return cod_guardar;
-	}
-	public void setCod_guardar(int cod_guardar) {
-		this.cod_guardar = cod_guardar;
 	}
 	
 	

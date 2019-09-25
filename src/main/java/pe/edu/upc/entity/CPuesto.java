@@ -27,7 +27,9 @@ public class CPuesto implements Serializable
 	
 	@Column(name = "N_Puesto",nullable =false, length = 50) 
 	private String N_Puesto;
+	@Column(name = "D_Creacion",nullable =false, length = 50) 
 	private Date D_Creacion;
+	@Column(name = "F_Eliminar",nullable =false, length = 50) 
 	private Boolean F_Eliminar;
 	public CPuesto(int iD_Puesto, int c_Puesto, String n_Puesto, Date d_Creacion, Boolean f_Eliminar) {
 		super();

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package pe.edu.upc.entity;
 
 import java.io.Serializable;
@@ -12,7 +11,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Pesca")
-
 public class CPesca implements Serializable {
 	/**
 	 * 
@@ -105,7 +103,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Pesca")
-
 public class CPesca implements Serializable {
 	/**
 	 * 
@@ -176,4 +173,4 @@ public class CPesca implements Serializable {
 	}
 
 }
->>>>>>> 413177722c67e88b70f76353eb627dec0e42befa
+

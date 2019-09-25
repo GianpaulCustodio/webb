@@ -36,7 +36,7 @@ public class PescaController implements Serializable {
 	@Inject
 	private IEmpleadoService emS;
 	@Inject
-	private IActividadPesquera apS;
+	private IActividadPesqueraDao apS;
 	
 	
 	
