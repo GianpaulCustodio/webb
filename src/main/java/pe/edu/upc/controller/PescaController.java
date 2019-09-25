@@ -32,9 +32,9 @@ public class PescaController implements Serializable {
 	@Inject
 	private IPescaService pS;
 	@Inject
-	private IHerramienta hS;
+	private IHerramientaService hS;
 	@Inject
-	private IEmpleado emS;
+	private IEmpleadoService emS;
 	@Inject
 	private IActividadPesquera apS;
 	
@@ -73,12 +73,11 @@ public class PescaController implements Serializable {
 		this.listHerramienta();
 		this.listEmpleado();
 		this.listActividadesPesqueras();
-		
 	}
 
 	// metodos
 	public String newCPesca() {
-		this.CPesca(new CPesca());
+		this.setPesca(new CPesca());
 		return "pesca.xhtml";
 	}
 
@@ -116,7 +115,7 @@ public class PescaController implements Serializable {
 	
 	public void listEspecie() {
 		try {
-			listEspecies = eS.list();
+			listEspecies = eS.listar();
 		} catch (Exception e) {
 			e.getMessage();
 		}
@@ -124,7 +123,7 @@ public class PescaController implements Serializable {
 	
 	public void listHerramienta() {
 		try {
-			listHerramientas = hS.list();
+			listHerramientas = hS.listar();
 		} catch (Exception e) {
 			e.getMessage();
 		}
@@ -139,7 +138,7 @@ public class PescaController implements Serializable {
 	}
 	public void listEmpleado() {
 		try {
-			listEmpleados = emS.list();
+			listEmpleados = emS.listar();
 		} catch (Exception e) {
 			e.getMessage();
 		}
@@ -227,9 +226,6 @@ public class PescaController implements Serializable {
 	public void setListActividadesPesqueras(List<CActividadPesquera> listActividadesPesqueras) {
 		this.listActividadesPesqueras = listActividadesPesqueras;
 	}
-
-	
-
 
 
 }
