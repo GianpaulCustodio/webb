@@ -11,22 +11,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 @Entity
 @Table(name = "Empleado")
 public class CEmpleado implements Serializable {
-	public CPuesto getCpuesto() {
-		return cpuesto;
-	}
-	public void setCpuesto(CPuesto cpuesto) {
-		this.cpuesto = cpuesto;
-	}
-	public CEmpresa getCempresa() {
-		return cempresa;
-	}
-	public void setCempresa(CEmpresa cempresa) {
-		this.cempresa = cempresa;
-	}
+	
+	
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int C_Empleado;
@@ -38,12 +30,16 @@ public class CEmpleado implements Serializable {
 	@JoinColumn(name = "C_Empresa", nullable = false)
 	private CEmpresa cempresa;
 	
+	@Column(name = "C_Contraseña", nullable = false, length = 80)
+	private String C_contraseña;	
 	@Column(name = "N_Empleado", nullable = false, length = 45)
 	private String N_Empleado;
 	@Column(name = "D_Creacion", nullable = false, length = 45)
 	private Date D_Creacion;
 	@Column(name = "F_Eliminar", nullable = false, length = 45)
 	private Boolean F_Eliminar;
+	@Column(name = "state", nullable = false, length = 1)
+	private String state;
 	public CEmpleado(int c_Empleado, CPuesto _cpuesto, CEmpresa _cempresa, String n_Empleado, Date d_Creacion,
 			Boolean f_Eliminar) {
 		super();
@@ -81,6 +77,29 @@ public class CEmpleado implements Serializable {
 	public void setF_Eliminar(Boolean f_Eliminar) {
 		F_Eliminar = f_Eliminar;
 	}
-	
+	public CPuesto getCpuesto() {
+		return cpuesto;
+	}
+	public void setCpuesto(CPuesto cpuesto) {
+		this.cpuesto = cpuesto;
+	}
+	public CEmpresa getCempresa() {
+		return cempresa;
+	}
+	public void setCempresa(CEmpresa cempresa) {
+		this.cempresa = cempresa;
+	}
+	public String getC_contraseña() {
+		return C_contraseña;
+	}
+	public void setC_contraseña(String c_contraseña) {
+		C_contraseña = c_contraseña;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
 }
 
