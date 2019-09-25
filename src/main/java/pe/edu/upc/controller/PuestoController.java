@@ -26,7 +26,7 @@ public class PuestoController implements Serializable {
 	List<CPuesto> listaPuestos;
 
 	@PostConstruct
-	public void intit() {
+	public void init() {
 		this.listaPuestos = new ArrayList<CPuesto>();
 		this.puesto = new CPuesto();
 		this.listar();
@@ -44,7 +44,7 @@ public class PuestoController implements Serializable {
 		}
 	}
 	public void limpiarPuesto() {
-		this.intit();
+		this.init();
 	}
 	public void insertar() {
 		try {

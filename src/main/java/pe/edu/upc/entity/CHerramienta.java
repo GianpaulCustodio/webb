@@ -3,15 +3,15 @@ package pe.edu.upc.entity;
 import java.util.Date;
 
 public class CHerramienta {
-	private int ID_Herramienta;
+
 	private int C_Herramienta;
 	private String N_Herramienta;
 	private Date D_Herramienta;
 	private Boolean F_Eliminar;
-	public CHerramienta(int iD_Herramienta, int c_Herramienta, String n_Herramienta, Date d_Herramienta,
+	public CHerramienta( int c_Herramienta, String n_Herramienta, Date d_Herramienta,
 			Boolean f_Eliminar) {
 		super();
-		ID_Herramienta = iD_Herramienta;
+	
 		C_Herramienta = c_Herramienta;
 		N_Herramienta = n_Herramienta;
 		D_Herramienta = d_Herramienta;
@@ -20,12 +20,7 @@ public class CHerramienta {
 	public CHerramienta() {
 		super();
 	}
-	public int getID_Herramienta() {
-		return ID_Herramienta;
-	}
-	public void setID_Herramienta(int iD_Herramienta) {
-		ID_Herramienta = iD_Herramienta;
-	}
+
 	public int getC_Herramienta() {
 		return C_Herramienta;
 	}
@@ -51,6 +46,4 @@ public class CHerramienta {
 		F_Eliminar = f_Eliminar;
 	}
 	
-	
-
 }
