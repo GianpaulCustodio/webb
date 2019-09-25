@@ -3,9 +3,12 @@ package pe.edu.upc.controller;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -111,6 +114,26 @@ public class EmpleadoController implements Serializable {
 		} else {
 
 		} return "Inactivo";	
+	}
+	
+	public String authentication() {
+		String redirect = null;
+
+		try {
+			Optional<CEmpleado> userFound = this.eS.authentication(empleado);
+
+			if (userFound.isPresent() && userFound.get().getState().equalsIgnoreCase("A")) {
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("empleado", userFound.get());
+				redirect = "/panel?faces-redirect=true";
+			} else {
+				FacesContext.getCurrentInstance().addMessage(null,
+						new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Credenciales incorrectas"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return redirect;
 	}
 	
 	

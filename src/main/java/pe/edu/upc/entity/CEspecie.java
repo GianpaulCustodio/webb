@@ -3,7 +3,7 @@ package pe.edu.upc.entity;
 import java.util.Date;
 
 public class CEspecie {
-	private int ID_Especie;
+
 	private int C_Especie;
 	private String N_Especie;
 	private Date D_Creacion;	
@@ -12,7 +12,7 @@ public class CEspecie {
 	public CEspecie(int iD_Especie, int c_Especie, String n_Especie, Date d_Creacion, float q_PesoPro,
 			Boolean f_Eliminar) {
 		super();
-		ID_Especie = iD_Especie;
+	
 		C_Especie = c_Especie;
 		N_Especie = n_Especie;
 		D_Creacion = d_Creacion;
@@ -22,12 +22,7 @@ public class CEspecie {
 	public CEspecie() {
 		super();
 	}
-	public int getID_Especie() {
-		return ID_Especie;
-	}
-	public void setID_Especie(int iD_Especie) {
-		ID_Especie = iD_Especie;
-	}
+
 	public int getC_Especie() {
 		return C_Especie;
 	}
