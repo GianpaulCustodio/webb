@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
+Built-By: ALE
+=======
 Built-By: LuisDO
+>>>>>>> 1dcb5feb1286d4f4d26ecfec99563d75e4c897e2
 Build-Jdk: 1.8.0_221
 Created-By: Maven Integration for Eclipse
 
