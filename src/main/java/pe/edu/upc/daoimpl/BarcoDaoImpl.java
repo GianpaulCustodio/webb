@@ -9,36 +9,39 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import pe.edu.upc.dao.IClimaDao;
-import pe.edu.upc.entity.CClima;
+import pe.edu.upc.dao.IBarcoDao;
+import pe.edu.upc.entity.CBarco;
 
 
+public class BarcoDaoImpl implements IBarcoDao, Serializable {
 
-public class ClimaDaoImpl implements IClimaDao, Serializable {
-	
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
+
 	@PersistenceContext(unitName = "IncaMar")
 	private EntityManager em;
 
+	
+	
 	@Transactional
 	@Override
-	public void insertar(CClima C_Clima , CClima T_Clima) {
+	public void insert(CBarco CBarco) {
 		try {
-			em.persist(C_Clima);
-			em.persist(T_Clima);
+			em.persist(CBarco);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
-	
-	@SuppressWarnings({ "unchecked", "unused" })
+	@SuppressWarnings("unchecked")
 	@Override
-	public List<CClima> listar() {
-		List<CClima> lista = new ArrayList<CClima>();
+	public List<CBarco> list()  {
+		List<CBarco> lista = new ArrayList<CBarco>();
 		try {
-			Query q = em.createQuery("select cl from CClima cl");
-			lista = (List<CClima>) q.getResultList();
+			Query q = em.createQuery("select p from CBarco p");
+			lista = (List<CBarco>) q.getResultList();
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -47,17 +50,14 @@ public class ClimaDaoImpl implements IClimaDao, Serializable {
 	}
 
 	@Override
-	public void eliminar(int C_Clima , int T_Clima) {
-		CClima cl = new CClima();
+	public void delete(int CBarco){
+		CBarco b = new CBarco();
 		try {
-			cl = em.getReference(CClima.class, C_Clima);
-			cl = em.getReference(CClima.class, T_Clima);
-			em.remove(cl);
+			b = em.getReference(CBarco.class, CBarco);
+			em.remove(b);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-
-
 	}
 
 }

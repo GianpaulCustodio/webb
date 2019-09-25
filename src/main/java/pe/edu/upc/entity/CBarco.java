@@ -1,50 +1,61 @@
 package pe.edu.upc.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class CBarco {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "Barco")
+public class CBarco implements Serializable {
 	
-	private int ID_Barco;
-	private int ID_Puerto;
-	private int ID_Empresa;
-	private int C_Barco;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int C_Barco;
+	@Column(name = "N_Barco",nullable = false , length = 50)
 	private String N_Barco;
+	
+	@ManyToOne
+	@JoinColumn(name = "N_Puerto", nullable = false)
+	private CPuerto puerto;
+	
+	@ManyToOne
+	@JoinColumn(name = "N_Empresa", nullable = false)
+	private CEmpresa empresa;
+	
+	
 	private Date D_Creacion;
 	private Boolean F_Eliminar;
-	public CBarco(int iD_Barco, int iD_Puerto, int iD_Empresa, int c_Barco, String n_Barco, Date d_Creacion,
+	public CBarco( int c_Barco, String n_Barco, CPuerto puerto,CEmpresa empresa,Date d_Creacion,
 			Boolean f_Eliminar) {
 		super();
-		ID_Barco = iD_Barco;
-		ID_Puerto = iD_Puerto;
-		ID_Empresa = iD_Empresa;
+		
 		C_Barco = c_Barco;
 		N_Barco = n_Barco;
+		this.empresa = empresa;
+		this.puerto = puerto;
 		D_Creacion = d_Creacion;
 		F_Eliminar = f_Eliminar;
 	}
-	public CBarco() {
-		super();
-	}
-	public int getID_Barco() {
-		return ID_Barco;
-	}
-	public void setID_Barco(int iD_Barco) {
-		ID_Barco = iD_Barco;
-	}
-	public int getID_Puerto() {
-		return ID_Puerto;
-	}
-	public void setID_Puerto(int iD_Puerto) {
-		ID_Puerto = iD_Puerto;
-	}
-	public int getID_Empresa() {
-		return ID_Empresa;
-	}
-	public void setID_Empresa(int iD_Empresa) {
-		ID_Empresa = iD_Empresa;
-	}
 	public int getC_Barco() {
 		return C_Barco;
+	}
+	public CBarco() {
+		super();
+		
 	}
 	public void setC_Barco(int c_Barco) {
 		C_Barco = c_Barco;
@@ -54,6 +65,18 @@ public class CBarco {
 	}
 	public void setN_Barco(String n_Barco) {
 		N_Barco = n_Barco;
+	}
+	public CPuerto getPuerto() {
+		return puerto;
+	}
+	public void setPuerto(CPuerto puerto) {
+		this.puerto = puerto;
+	}
+	public CEmpresa getEmpresa() {
+		return empresa;
+	}
+	public void setEmpresa(CEmpresa empresa) {
+		this.empresa = empresa;
 	}
 	public Date getD_Creacion() {
 		return D_Creacion;
@@ -67,7 +90,8 @@ public class CBarco {
 	public void setF_Eliminar(Boolean f_Eliminar) {
 		F_Eliminar = f_Eliminar;
 	}
+}
 	
 	
 
-}
+
