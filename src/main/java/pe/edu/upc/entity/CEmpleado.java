@@ -14,12 +14,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Empleado")
 public class CEmpleado implements Serializable {
-	public int getID_Empleado() {
-		return ID_Empleado;
-	}
-	public void setID_Empleado(int iD_Empleado) {
-		ID_Empleado = iD_Empleado;
-	}
 	public CPuesto getCpuesto() {
 		return cpuesto;
 	}
@@ -35,8 +29,6 @@ public class CEmpleado implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int ID_Empleado;
-	@Column(name = "C_Empleado", nullable = false, length = 45)
 	private int C_Empleado;
 	
 	@ManyToOne
@@ -52,11 +44,10 @@ public class CEmpleado implements Serializable {
 	private Date D_Creacion;
 	@Column(name = "F_Eliminar", nullable = false, length = 45)
 	private Boolean F_Eliminar;
-	public CEmpleado(int c_Empleado, int id_Empleado, CPuesto _cpuesto, CEmpresa _cempresa, String n_Empleado, Date d_Creacion,
+	public CEmpleado(int c_Empleado, CPuesto _cpuesto, CEmpresa _cempresa, String n_Empleado, Date d_Creacion,
 			Boolean f_Eliminar) {
 		super();
 		C_Empleado = c_Empleado;
-		ID_Empleado = id_Empleado;
 		cpuesto = _cpuesto;
 		cempresa = _cempresa;
 		N_Empleado = n_Empleado;
@@ -71,12 +62,6 @@ public class CEmpleado implements Serializable {
 	}
 	public void setC_Empleado(int c_Empleado) {
 		C_Empleado = c_Empleado;
-	}
-	public int getId_Empleado() {
-		return ID_Empleado;
-	}
-	public void setId_Empleado(int id_Empleado) {
-		ID_Empleado = id_Empleado;
 	}
 	public String getN_Empleado() {
 		return N_Empleado;
