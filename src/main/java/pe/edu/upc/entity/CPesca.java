@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package pe.edu.upc.entity;
 
 import java.io.Serializable;
@@ -90,6 +91,8 @@ public class CPesca implements Serializable {
 
 }
 =======
+=======
+>>>>>>> 1dcb5feb1286d4f4d26ecfec99563d75e4c897e2
 package pe.edu.upc.entity;
 
 import java.io.Serializable;

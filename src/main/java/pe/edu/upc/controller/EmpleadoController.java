@@ -17,6 +17,7 @@ import pe.edu.upc.entity.CEmpresa;
 import pe.edu.upc.entity.CProveedor;
 import pe.edu.upc.entity.CPuesto;
 import pe.edu.upc.service.IEmpleadoService;
+import pe.edu.upc.service.IEmpresaService;
 import pe.edu.upc.service.IPuestoService;
 
 @Named
