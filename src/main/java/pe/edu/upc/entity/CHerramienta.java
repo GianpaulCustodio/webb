@@ -21,7 +21,6 @@ public class CHerramienta {
 		super();
 	}
 
-	
 	public int getC_Herramienta() {
 		return C_Herramienta;
 	}
@@ -47,6 +46,4 @@ public class CHerramienta {
 		F_Eliminar = f_Eliminar;
 	}
 	
-	
-
 }
