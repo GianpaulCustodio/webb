@@ -51,7 +51,7 @@ public class EmpresaController implements Serializable{
 	public void setListaEmpresas(List<CEmpresa> listaEmpresas) {
 		this.listaEmpresas = listaEmpresas;
 	}
-     //METODOS 
+     //METODOSSSSSS
 	public String NuevoEmpresa() {
 		this.setEmpresa(new CEmpresa());
 		return "empresa.xhtml";
