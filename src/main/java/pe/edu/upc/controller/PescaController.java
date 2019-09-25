@@ -75,7 +75,7 @@ public class PescaController implements Serializable {
 		this.listActividadesPesqueras();
 	}
 
-	// metodos
+	// metodoss
 	public String newCPesca() {
 		this.setPesca(new CPesca());
 		return "pesca.xhtml";
