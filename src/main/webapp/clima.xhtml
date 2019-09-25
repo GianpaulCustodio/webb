@@ -29,6 +29,14 @@
 				styleClass="form-control"
 				value="#{climaController.clima.n_Clima}"
 				maxlength="30" required="true"/>
+				
+				<h:outputLabel for="TemperaturaClima" value="Temperatura"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="TemperaturaClima"
+				styleClass="form-control"
+				value="#{climaController.clima.t_Clima}"
+				maxlength="30" required="true"/>
 
 			<h:outputLabel for="fechaclima" value="Fecha "
 				styleClass="control-label" />

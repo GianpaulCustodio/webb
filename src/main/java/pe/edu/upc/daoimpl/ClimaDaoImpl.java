@@ -22,9 +22,10 @@ public class ClimaDaoImpl implements IClimaDao, Serializable {
 
 	@Transactional
 	@Override
-	public void insertar(CClima C_Clima) {
+	public void insertar(CClima C_Clima , CClima T_Clima) {
 		try {
 			em.persist(C_Clima);
+			em.persist(T_Clima);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -46,10 +47,11 @@ public class ClimaDaoImpl implements IClimaDao, Serializable {
 	}
 
 	@Override
-	public void eliminar(int C_Clima) {
+	public void eliminar(int C_Clima , int T_Clima) {
 		CClima cl = new CClima();
 		try {
 			cl = em.getReference(CClima.class, C_Clima);
+			cl = em.getReference(CClima.class, T_Clima);
 			em.remove(cl);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
