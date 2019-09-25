@@ -1,17 +1,36 @@
 package pe.edu.upc.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class CEmpresa {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-	private int ID_Empresa;
+
+
+@Entity
+@Table (name = "Empresa")
+public class CEmpresa implements Serializable  {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int C_Empresa;
+	@Column(name = "N_Empresa",nullable = false, length = 50)
 	private String N_Empresa;
 	private Date D_Creacion;
 	private Boolean F_Eliminar;
-	public CEmpresa(int iD_Empresa, int c_Empresa, String n_Empresa, Date d_Creacion, Boolean f_Eliminar) {
+	public CEmpresa( int c_Empresa, String n_Empresa, Date d_Creacion, Boolean f_Eliminar) {
 		super();
-		ID_Empresa = iD_Empresa;
+		
 		C_Empresa = c_Empresa;
 		N_Empresa = n_Empresa;
 		D_Creacion = d_Creacion;
@@ -28,12 +47,7 @@ public class CEmpresa {
 
 
 
-	public int getID_Empresa() {
-		return ID_Empresa;
-	}
-	public void setID_Empresa(int iD_Empresa) {
-		ID_Empresa = iD_Empresa;
-	}
+
 	public int getC_Empresa() {
 		return C_Empresa;
 	}
