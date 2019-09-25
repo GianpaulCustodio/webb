@@ -1,23 +1,64 @@
 package pe.edu.upc.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class CEmpleado {
-
-	private int C_Empleado;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+@Entity
+@Table(name = "Empleado")
+public class CEmpleado implements Serializable {
+	public int getID_Empleado() {
+		return ID_Empleado;
+	}
+	public void setID_Empleado(int iD_Empleado) {
+		ID_Empleado = iD_Empleado;
+	}
+	public CPuesto getCpuesto() {
+		return cpuesto;
+	}
+	public void setCpuesto(CPuesto cpuesto) {
+		this.cpuesto = cpuesto;
+	}
+	public CEmpresa getCempresa() {
+		return cempresa;
+	}
+	public void setCempresa(CEmpresa cempresa) {
+		this.cempresa = cempresa;
+	}
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ID_Empleado;
-	private int C_Puesto;
-	private int C_Empresa;
+	@Column(name = "C_Empleado", nullable = false, length = 45)
+	private int C_Empleado;
+	
+	@ManyToOne
+	@JoinColumn(name = "C_Puesto", nullable = false)
+	private CPuesto cpuesto;
+	@ManyToOne
+	@JoinColumn(name = "C_Empresa", nullable = false)
+	private CEmpresa cempresa;
+	
+	@Column(name = "N_Empleado", nullable = false, length = 45)
 	private String N_Empleado;
+	@Column(name = "D_Creacion", nullable = false, length = 45)
 	private Date D_Creacion;
+	@Column(name = "F_Eliminar", nullable = false, length = 45)
 	private Boolean F_Eliminar;
-	public CEmpleado(int c_Empleado, int id_Empleado, int c_Puesto, int c_Empresa, String n_Empleado, Date d_Creacion,
+	public CEmpleado(int c_Empleado, int id_Empleado, CPuesto _cpuesto, CEmpresa _cempresa, String n_Empleado, Date d_Creacion,
 			Boolean f_Eliminar) {
 		super();
 		C_Empleado = c_Empleado;
 		ID_Empleado = id_Empleado;
-		C_Puesto = c_Puesto;
-		C_Empresa = c_Empresa;
+		cpuesto = _cpuesto;
+		cempresa = _cempresa;
 		N_Empleado = n_Empleado;
 		D_Creacion = d_Creacion;
 		F_Eliminar = f_Eliminar;
@@ -37,18 +78,6 @@ public class CEmpleado {
 	public void setId_Empleado(int id_Empleado) {
 		ID_Empleado = id_Empleado;
 	}
-	public int getC_Puesto() {
-		return C_Puesto;
-	}
-	public void setC_Puesto(int c_Puesto) {
-		C_Puesto = c_Puesto;
-	}
-	public int getC_Empresa() {
-		return C_Empresa;
-	}
-	public void setC_Empresa(int c_Empresa) {
-		C_Empresa = c_Empresa;
-	}
 	public String getN_Empleado() {
 		return N_Empleado;
 	}
@@ -67,7 +96,6 @@ public class CEmpleado {
 	public void setF_Eliminar(Boolean f_Eliminar) {
 		F_Eliminar = f_Eliminar;
 	}
-	
 	
 }
 
