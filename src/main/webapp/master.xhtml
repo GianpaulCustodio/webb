@@ -1,72 +1,400 @@
 <!DOCTYPE html>
-<html lang="es" class="no-js" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
+<html lang="es" class="no-js" xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui" xmlns:th="http://www.thymeleaf.org">
 <h:head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	<meta charset="utf-8" />
-	<title><ui:insert name="title"></ui:insert></title>
-	<meta name="generator" content="Bootply" />
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<link
-		href='https://fonts.googleapis.com/css?family=Roboto:400,300,500|Ubuntu+Condensed'
-		rel='stylesheet' type='text/css' />
-	<link rel="shortcut icon" type="image/x-icon"
-		href="resources/img/logo.ico" />
 
-	<h:outputStylesheet name="css/bootstrap.min.css" />
-	<h:outputStylesheet name="css/main_base.css" />
-	<h:outputStylesheet name="css/font_ico.css" />
-	<ui:insert name="headCont"></ui:insert>
+
+
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<link href="https://fonts.googleapis.com/css?family=Merienda+One"
+		rel="stylesheet" />
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+
+
+
+
+	<link
+		href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+		rel="stylesheet" />
+
+
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script
+		src="https: //ajax.googleapis.com /ajax/libs/jquery/1.12.4
+	/jquery.min.js
+	 "> </script>
+	<script
+		src="https: //maxcdn.bootstrapcdn.com /bootstrap/3.3.7 /js/bootstrap.min.js
+	 "> </script>
+	<style type="text/css">
+body {
+	background: #eeeeee;
+}
+
+.form-inline {
+	display: inline-block;
+}
+
+.navbar-header.col {
+	padding: 0 !important;
+}
+
+.navbar {
+	background: #fff;
+	padding-left: 16px;
+	padding-right: 16px;
+	border-bottom: 1px solid #d6d6d6;
+	box-shadow: 0 0 4px rgba(0, 0, 0, .1);
+}
+
+.nav-link img {
+	border-radius: 50%;
+	width: 36px;
+	height: 36px;
+	margin: -8px 0;
+	float: left;
+	margin-right: 10px;
+}
+
+.navbar .navbar-brand {
+	color: #555;
+	padding-left: 0;
+	padding-right: 50px;
+	font-family: 'Merienda One', sans-serif;
+}
+
+.navbar .navbar-brand i {
+	font-size: 20px;
+	margin-right: 5px;
+}
+
+.search-box {
+	position: relative;
+}
+
+.search-box input {
+	box-shadow: none;
+	padding-right: 35px;
+	border-radius: 3px !important;
+}
+
+.search-box .input-group-addon {
+	min-width: 35px;
+	border: none;
+	background: transparent;
+	position: absolute;
+	right: 0;
+	z-index: 9;
+	padding: 7px;
+	height: 100%;
+}
+
+.search-box i {
+	color: #a0a5b1;
+	font-size: 19px;
+}
+
+.navbar .nav-item i {
+	font-size: 18px;
+}
+
+.navbar .dropdown-item i {
+	font-size: 16px;
+	min-width: 22px;
+}
+
+.navbar .nav-item.open>a {
+	background: none !important;
+}
+
+.navbar .dropdown-menu {
+	border-radius: 1px;
+	border-color: #e5e5e5;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+}
+
+.navbar .dropdown-menu li a {
+	color: #777;
+	padding: 8px 20px;
+	line-height: normal;
+}
+
+.navbar .dropdown-menu li a:hover, .navbar .dropdown-menu li a:active {
+	color: #333;
+}
+
+.navbar .dropdown-item .material-icons {
+	font-size: 21px;
+	line-height: 16px;
+	vertical-align: middle;
+	margin-top: -2px;
+}
+
+.navbar .badge {
+	background: #f44336;
+	font-size: 11px;
+	border-radius: 20px;
+	position: absolute;
+	min-width: 10px;
+	padding: 4px 6px 0;
+	min-height: 18px;
+	top: 5px;
+}
+
+.navbar ul.nav li a.notifications, .navbar ul.nav li a.messages {
+	position: relative;
+	margin-right: 10px;
+}
+
+.navbar ul.nav li a.messages {
+	margin-right: 20px;
+}
+
+.navbar a.notifications .badge {
+	margin-left: -8px;
+}
+
+.navbar a.messages .badge {
+	margin-left: -4px;
+}
+
+.navbar .active a, .navbar .active a:hover, .navbar .active a:focus {
+	background: transparent !important;
+}
+
+@media ( min-width : 1200px) {
+	.form-inline .input-group {
+		width: 300px;
+		margin-left: 30px;
+	}
+}
+
+@media ( max-width : 1199px) {
+	.form-inline {
+		display: block;
+		margin-bottom: 10px;
+	}
+	.input-group {
+		width: 100%;
+	}
+}
+
+body {
+	background: #ebebeb;
+}
+
+h2 {
+	color: #696969;
+	font-size: 26px;
+	font-weight: 300;
+	text-align: center;
+	position: relative;
+	margin: 40px 70px;
+	text-transform: uppercase;
+	font-family: 'Open Sans', sans-serif;
+}
+
+h2::after {
+	content: "";
+	width: 100%;
+	position: absolute;
+	margin: 0 auto;
+	height: 1px;
+	border-radius: 1px;
+	background: #d4d4d4;
+	left: 0;
+	right: 0;
+	bottom: 14px;
+}
+
+h2 span {
+	display: inline-block;
+	padding: 0 25px;
+	background: #ebebeb;
+	position: relative;
+	z-index: 2;
+}
+
+.col-center {
+	margin: 0 auto;
+	float: none !important;
+}
+
+.carousel {
+	margin: 30px auto 50px;
+	padding: 0 68px;
+}
+
+.carousel .item {
+	text-align: center;
+	overflow: hidden;
+	height: 160px;
+}
+
+.carousel .item .img-box {
+	background: #fff;
+	padding: 9px;
+	box-shadow: 0 6px 20px -6px rgba(0, 0, 0, 0.4);
+}
+
+.carousel .item img {
+	margin: 0 auto;
+}
+
+.carousel .carousel-control {
+	width: 68px;
+	background: none;
+}
+
+.carousel .carousel-control i {
+	font-size: 28px;
+	position: absolute;
+	top: 50%;
+	display: inline-block;
+	margin-top: -15px;
+	z-index: 5;
+	left: 0;
+	right: 0;
+	color: rgba(0, 0, 0, 0.8);
+	text-shadow: 0 3px 3px #e6e6e6, 0 0 0 #000;
+}
+
+.carousel .carousel-indicators {
+	bottom: -40px;
+}
+
+.carousel-indicators li, .carousel-indicators li.active {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	margin: 1px 4px;
+	box-shadow: inset 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-indicators li {
+	background: #999;
+	border-color: transparent;
+}
+
+.carousel-indicators li.active {
+	background: #555;
+}
+</style>
+
 </h:head>
 <h:body>
-	<nav class="navbar navbar-default navbar-fixed-top base_primary"
-		role="banner">
-		<div class="container">
-			<div class="navbar-header">
-				<button class="navbar-toggle" type="button" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand"
-					style="display: table; padding-top: 5px; padding-bottom: 5px;"><img
-					src="resources/img/logo.png" alt="" height="50" /></a>
-			</div>
+	<nav class="navbar navbar-default navbar-expand-xl navbar-light">
+		<div class="navbar-header d-flex col">
+			<a class="navbar-brand" href="panel.xhtml">
+			<img src="http://pe.abcmultinegocios.com/wp-content/uploads/2016/12/Incamar-abcmultinegocios.jpg" WIDTH="100" HEIGHT="50" /> 
+			<button type="button" data-target="#navbarCollapse"
+				data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
+				<span class="navbar-toggler-icon"></span> <span class="icon-bar"></span>
+				<span class="icon-bar"></span> <span class="icon-bar"></span>
+			</button></a>
+		</div>
+		<!-- Collection of nav links, forms, and other content for toggling -->
+		<div id="navbarCollapse"
+			class="collapse navbar-collapse justify-content-start">
+			<ul class="nav navbar-nav">
+				<li class="nav-item active"><a href="index.xhtml" class="nav-link">Inicio</a></li>
 
+				<li class="nav-item dropdown"><a data-toggle="dropdown"
+					class="nav-link dropdown-toggle" href="#">Serv. Empresa<b
+						class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#" class="dropdown-item">Gestión Empleado</a></li>
+						<li><a href="#" class="dropdown-item">Gestión Empresa</a></li>
+						<li><a href="listpuesto.xhtml" class="dropdown-item">Gestión
+								Puesto</a></li>
+
+
+					</ul></li>
+
+				<li class="nav-item dropdown"><a data-toggle="dropdown"
+					class="nav-link dropdown-toggle" href="#">Serv.-Embarcación<b
+						class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#" class="dropdown-item">Gestion A. Pesquera</a></li>
+						<li><a href="listpuerto.xhtml" class="dropdown-item">Gestión
+								Puerto</a></li>
+						<li><a href="#" class="dropdown-item">Gestión Barco</a></li>
+						<li><a href="listclima.xhtml" class="dropdown-item">Gestión
+								Clima</a></li>
+
+
+					</ul></li>
+
+				<li class="nav-item dropdown"><a data-toggle="dropdown"
+					class="nav-link dropdown-toggle" href="#">Serv.-Pesca<b
+						class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#" class="dropdown-item">Gestión Herramienta</a></li>
+						<li><a href="listproveedor.xhtml" class="dropdown-item">Gestion
+								Proveedor</a></li>
+						<li><a href="#" class="dropdown-item">Gestion Producto</a></li>
+						<li><a href="#" class="dropdown-item">Gestión Especie</a></li>
+						<li><a href="#" class="dropdown-item">Gestión Pesca</a></li>
+						<li><a href="listtipopesca.xhtml" class="dropdown-item">Gestión T. Pesca</a></li>
+
+					</ul></li>
+
+
+
+
+				<li class="nav-item"><a href="#" class="nav-link">Contacto</a></li>
+			</ul>
+			<form class="navbar-form form-inline">
+				<div class="input-group search-box">
+					<input type="text" id="search" class="form-control"
+						placeholder="Buscar" /><span class="input-group-addon"><i
+						class="material-icons">&#xE8B6;</i></span>
+				</div>
+			</form>
+			<ul class="nav navbar-nav navbar-right ml-auto">
+				<li class="nav-item"><a href="#" class="nav-link notifications"><i
+						class="fa fa-bell-o"></i><span class="badge">1</span></a></li>
+				<li class="nav-item"><a href="#" class="nav-link messages"><i
+						class="fa fa-envelope-o"></i><span class="badge">1</span></a></li>
+				<li class="nav-item dropdown"><a href="#"
+					data-toggle="dropdown" class="nav-link dropdown-toggle user-action"><img
+						src="https://www.tutorialrepublic.com/examples/images/avatar/2.jpg"
+						class="avatar" alt="Avatar" /> Paula Wilson <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="#" class="dropdown-item"><i
+								class="fa fa-user-o"></i> Profile</a></li>
+						<li><a href="#" class="dropdown-item"><i
+								class="fa fa-calendar-o"></i> Calendar</a></li>
+						<li><a href="#" class="dropdown-item"><i
+								class="fa fa-sliders"></i> Settings</a></li>
+						<li class="divider dropdown-divider"></li>
+						<li><a href="#" class="dropdown-item"><i
+								class="material-icons">&#xE8AC;</i> Logout</a></li>
+					</ul></li>
+			</ul>
 		</div>
 	</nav>
-	<!--main-->
-	<div class="container base_fondo_fff"
-		style="min-height: 600px; border-radius: 4px; margin-top: 35px;">
-		<div class="row">
-			<!--left-->
-			<div class="col-md-3" id="leftCol">
-				<ul class="nav nav-stacked" id="sidebar">
-					<li id="sidebar-1"><a href="index.html"><i
-							class="icon-home"></i> Inicio</a></li>
-				</ul>
-			</div>
-			<!--/left-->
+	<ui:insert name="contenido">
 
-			<!--right-->
-			<div class="col-md-9" style="padding-right: 30px">
-				<h2 id="sec0" class="title-style">
-					<ui:insert name="titleCont">ProgramacionWeb</ui:insert>
-				</h2>
-				<!-- seccion para el contenido -->
-				<ui:insert name="content">
-				</ui:insert>
-			</div>
-			<!--/right-->
-		</div>
-		<!--/row-->
-	</div>
-	<!--/container-->
-	<ui:insert name="footerCont"></ui:insert>
+	</ui:insert>
 </h:body>
 </html>

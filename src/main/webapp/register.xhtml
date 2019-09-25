@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link>
+	<link rel="shortcut icon" type="image/x-icon"
+		href="resources/img/favicon.ico" />
+</h:head>
+<body>
+
+	<h:form id="frm">
+		<p:growl id="men" />
+		<center >
+			<h:graphicImage value="/resources/img/logo.png" height="15%"
+				width="15%"></h:graphicImage>
+			<br />
+		</center>
+		<div align="center">
+
+			<f:facet name="header">Registrar Usuario</f:facet>
+			<p:messages id="msgs" closable="true" />
+			<h:panelGrid id="pg" columns="4">
+				<p:outputLabel for="txtName" value="Nombres" />
+				<p:inputText id="txtName"
+					value="#{registerController.customer.name}" required="true" 
+					styleClass="form-control"> 
+					<f:validateLength minimum="3" />
+				</p:inputText>
+				<p:message for="txtName" display="icon" />
+				<h:column />
+				
+				<p:outputLabel for="txtAddress" value="Dirección" />
+				<p:inputText id="txtAddress"
+					value="#{registerController.customer.address}" counter="display"
+					rows="5" cols="30" maxlength="250"
+					counterTemplate="{0} caracteres restantes." autoResize="false"
+					required="true" styleClass="form-control" >
+					<f:validateLength minimum="5" />
+				</p:inputText>
+				<p:message for="txtAddress" display="icon" />
+				
+				<h:column />
+
+				<p:outputLabel for="txtDni" value="Dni" />
+				<p:inputText id="txtDni" value="#{registerController.customer.dni}"
+					counter="display" rows="5" cols="30" maxlength="250"
+					counterTemplate="{0} caracteres restantes." autoResize="false"
+					required="true" styleClass="form-control" >
+					<f:validateLength minimum="5" />
+				</p:inputText>	
+				<p:message for="txtDni" display="icon" />
+				<h:column />
+				
+
+				<p:outputLabel for="txtCountry" value="Pais" />
+				<p:inputText id="txtCountry"
+					value="#{registerController.customer.country}" counter="display"
+					rows="5" cols="30" maxlength="250"
+					counterTemplate="{0} caracteres restantes." autoResize="false"
+					required="true" styleClass="form-control" >
+					<f:validateLength minimum="3" />
+				</p:inputText>
+				<p:message for="txtCountry" display="icon" />
+				<h:column />
+				<h:column />
+				<h:outputText id="display" />
+				<h:column />
+				<h:column />
+
+				<p:outputLabel for="txtUser" value="Usuario" />
+				<p:inputText id="txtUser"
+					value="#{registerController.user.username}" required="true"
+					styleClass="form-control" >
+					<f:validateLength minimum="3" />
+				</p:inputText>
+				<p:message for="txtUser" display="icon" />
+				<h:column />
+
+				<p:outputLabel for="txtPassword1" value="Contraseña :" />
+				<p:password id="txtPassword1"
+					value="#{registerController.user.password}" match="txtPassword2"
+					label="Password 1" required="true"
+					validatorMessage="Contraseñas no coinciden"
+					styleClass="form-control" >
+					<f:validateLength minimum="3" />
+				</p:password>
+				<p:message for="txtPassword1" display="icon" />
+				<h:column />
+
+				<p:outputLabel for="txtPassword2"
+					value="Escriba nuevamente su contraseña:" />
+				<p:password id="txtPassword2"
+					value="#{registerController.user.password}" label="Password 2"
+					required="true" styleClass="form-control" >
+				<f:validateLength minimum="3" />
+				</p:password>
+				<h:column />
+				<h:column />
+
+			</h:panelGrid>
+
+			<p:commandButton value="Inicio" action="index?faces-redirect=true"
+				immediate="true" styleClass="btn btn-primary" />
+			<p:commandButton value="Registrar" update="frm"
+				action="#{registerController.registerUser()}"
+				styleClass="btn btn-primary" icon="pi pi-check" />
+		</div>
+	</h:form>
+
+</body>
+</html>

@@ -4,6 +4,9 @@ import java.util.Date;
 
 public class CEspecie {
 
+	
+	
+	
 	private int C_Especie;
 	private String N_Especie;
 	private Date D_Creacion;	

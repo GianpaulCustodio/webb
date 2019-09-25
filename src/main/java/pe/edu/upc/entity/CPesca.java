@@ -11,7 +11,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Pesca")
-
 public class CPesca implements Serializable {
 	/**
 	 * 

@@ -6,59 +6,50 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <ui:composition template="master.xhtml">
-
-	<ui:define name="title">
-        .:Registro de Climas:.
-    </ui:define>
-
-	<ui:define name="titleCont">
-		<span>Clima</span>
-	</ui:define>
-
-	<ui:define name="content">
+	<ui:define name="contenido">
 		<h:form>
-			<h:outputLabel for="cClima" value="Id " styleClass="control-label" />
+			<div>
+				<h:outputLabel for="idClima" value="Id " styleClass="control-label" />
 
-			<p:inputText autocomplete="off" id="idClima"
-				styleClass="form-control"
-				value="#{climaController.clima.c_Clima}" required="true" />
-			<h:outputLabel for="NombreClima" value="Nombres "
-				styleClass="control-label" />
+				<p:inputText autocomplete="off" id="idMotor"
+					styleClass="form-control" value="#"
+					required="true" />
+				<h:outputLabel for="nombreMotor" value="Nombres "
+					styleClass="control-label" />
 
-			<p:inputText autocomplete="off" id="nombreClima"
-				styleClass="form-control"
-				value="#{climaController.clima.n_Clima}"
-				maxlength="30" required="true"/>
-				
-				<h:outputLabel for="TemperaturaClima" value="Temperatura"
-				styleClass="control-label" />
+				<p:inputText autocomplete="off" id="nombreMotor"
+					styleClass="form-control"
+					value="#" maxlength="30"
+					required="true" requiredMessage="Nombre vacío*"></p:inputText>
+				<p:message for="nombreMotor" style="color:red" />
 
-			<p:inputText autocomplete="off" id="TemperaturaClima"
-				styleClass="form-control"
-				value="#{climaController.clima.t_Clima}"
-				maxlength="30" required="true"/>
 
-			<h:outputLabel for="fechaclima" value="Fecha "
-				styleClass="control-label" />
 
-			<p:calendar id="fechaclima" pattern="dd/MM/yyyy"
-				value="#{climaController.clima.d_Creacion}"
-				showOn="button" timeZone="UTC" required="true">
-			</p:calendar>
-			<br />
-			
 
-			<p:commandButton value="Grabar"
-				actionListener="#{climaController.insertar()}"
-				styleClass="btn btn-primary " update="@form"
-				action="listclima?faces-redirect=true" />
-			<p:commandButton value="Cancelar"
-				action="listclima?faces-redirect=true" immediate="true"
-				styleClass="btn btn-default" ajax="false" />
+				<h:outputLabel for="fechaMotor" value="Fecha "
+					styleClass="control-label" />
 
-			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+				<p:calendar id="fechaMotor" pattern="dd/MM/yyyy"
+					value=""
+					showOn="button" timeZone="UTC" required="true"
+					requiredMessage="fecha vacía">
+				</p:calendar>
+				<p:message for="fechaMotor" style="color:red" />
 
+				<br />
+
+
+				<p:commandButton value="Grabar"
+					actionListener="#"
+					styleClass="btn btn-primary " update="@form"
+					action="listMotor?faces-redirect=true" />
+
+
+				<p:commandButton value="Cancelar" action="listclima?faces-redirect=true"
+					immediate="true" styleClass="btn btn-default" ajax="false" />
+			</div>
 		</h:form>
+
 	</ui:define>
 
 	<ui:define name="footerCont">

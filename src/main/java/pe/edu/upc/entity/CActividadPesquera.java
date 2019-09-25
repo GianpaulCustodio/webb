@@ -2,8 +2,14 @@ package pe.edu.upc.entity;
 
 import java.util.Date;
 
-public class CActividadPesquera 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class CActividadPesquera  implements Serializable
 {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ID_Actividad;
 	private int ID_Barco;
 	private int ID_Clima;
