@@ -36,7 +36,7 @@ public class EmpleadoDaoImpl implements IEmpleadoDao, Serializable {
 	public List<CEmpleado> listar() {
 		List<CEmpleado> lista = new ArrayList<CEmpleado>();
 		try {
-			Query q = em.createQuery("select p from Part p");
+			Query q = em.createQuery("select p from Empleado p");
 			lista = (List<CEmpleado>) q.getResultList();
 
 		} catch (Exception e) {

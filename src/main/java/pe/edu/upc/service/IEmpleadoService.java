@@ -9,5 +9,5 @@ public interface IEmpleadoService {
 
 	public List<CEmpleado> listar();
 
-	public void eliminar(CEmpleado empleado);
+	public void eliminar(int c_empleado);
 }
