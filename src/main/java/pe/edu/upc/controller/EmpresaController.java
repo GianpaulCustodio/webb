@@ -33,7 +33,7 @@ public class EmpresaController implements Serializable{
 		
 	}
 	
-	//GET y SET
+	//GET andd SET
 	
 
 	public CEmpresa getEmpresa() {
