@@ -53,7 +53,7 @@ public class ProveedorController implements Serializable {
 		}
 	}
 	
-	public void modificar_update( ) {
+	/*public void modificar_update( ) {
 		for (CProveedor cProveedor : listaProveedores) {
 			if (cProveedor.getC_Proveedor()==provee.getCod_guardar()) 
 			{
@@ -65,7 +65,7 @@ public class ProveedorController implements Serializable {
 		}
 		limpiarProveedor();
 		this.listar();
-	}
+	}*/
 	
 	public String Estado_Buscar(int cod)
 	{

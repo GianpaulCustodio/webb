@@ -3,12 +3,15 @@ package pe.edu.upc.serviceimpl;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import pe.edu.upc.dao.IPescaDao;
 import pe.edu.upc.entity.CPesca;
 import pe.edu.upc.service.IPescaService;
-
+@Named
+@RequestScoped
 public class PescaServiceImpl  implements IPescaService, Serializable {
 	private static final long serialVersionUID = 1L;
 	@Inject

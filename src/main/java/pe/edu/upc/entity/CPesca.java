@@ -1,6 +1,9 @@
+
 package pe.edu.upc.entity;
 
 import java.io.Serializable;
+
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 @Entity
 @Table(name = "Pesca")
 public class CPesca implements Serializable {
@@ -46,6 +48,14 @@ public class CPesca implements Serializable {
 
 	public CPesca() {
 		super();
+	}
+
+	public int getCPesca() {
+		return CPesca;
+	}
+
+	public void setCPesca(int cPesca) {
+		CPesca = cPesca;
 	}
 
 	public CEmpleado getEmpleado() {

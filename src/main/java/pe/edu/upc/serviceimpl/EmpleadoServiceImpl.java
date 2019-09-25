@@ -16,6 +16,7 @@ import pe.edu.upc.entity.CEmpleado;
 import pe.edu.upc.service.IEmpleadoService;
 
 @Named
+@RequestScoped
 public class EmpleadoServiceImpl implements IEmpleadoService, Serializable{
 
 	/**

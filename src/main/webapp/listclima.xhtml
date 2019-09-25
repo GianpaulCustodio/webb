@@ -25,12 +25,12 @@
 				<div class="col-sm-8 text-right">
 					<div class="form-group box-main-btn">
 						<span style="display: block; height: 30px;"></span>
-						<p:commandButton value="Limpiar" update="lstclima"	
-							styleClass="btn btn-default" ajax="false" /><!-- actionListener="#{motorController.cleanMotor()}" -->
-						<p:commandButton value="Buscar" update="lstclima"
+						<p:commandButton value="Limpiar" update="lstclima"	actionListener="#{climaController.limpiarClima()}"
+							styleClass="btn btn-default" ajax="false" /><!-- actionListener="#{motorController.cleanMotor()" -->
+						<p:commandButton value="Buscar" update="lstclima" actionListener="#"
 							styleClass="btn btn-default btn-border" ajax="true" /><!-- actionListener="#{motorController.findByName()}" -->
 						<p:commandButton value="Nuevo"
-							action="clima.xhtml"
+							action="#{climaController.nuevoClima()}"
 							styleClass="btn btn-primary" ajax="false" />
 					</div>
 				</div>
@@ -39,28 +39,27 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
-						<p:dataTable id="lstclima" var="clim"
-							value="#" paginator="true"
+						<p:dataTable id="lstclima" var="clima"
+							value="#{climaController.listaClimas}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25,30"
 							rows="5" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#">
-								<h:outputText value="#" />
+							<p:column headerText="Id" sortBy="#{clima.c_Clima}">
+								<h:outputText value="#{clima.c_Clima}" />
 							</p:column>
-
-							<p:column headerText="Nombre" sortBy="#">
-								<h:outputText value="#" />
+							<p:column headerText="Nombre" sortBy="#{clima.n_Clima}">
+								<h:outputText value="#{clima.n_Clima}" />
 							</p:column>
 							<p:column headerText="Fecha "
-								sortBy="">
-								<h:outputText value="">
+								sortBy="#{clima.d_Creacion}">
+								<h:outputText value="#{clima.d_Creacion}">
 									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
 								</h:outputText>
 							</p:column>
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="listclima" value="Eliminar"
+								<h:commandLink action="listclima" value="Eliminar" actionListener="#{climaController.eliminar(clim)}"
 									 /><!--actionListener="#{motorController.delete(mot)}"  -->
 							</p:column>
 

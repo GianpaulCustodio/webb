@@ -12,14 +12,14 @@
 				<h:outputLabel for="idClima" value="Id " styleClass="control-label" />
 
 				<p:inputText autocomplete="off" id="idMotor"
-					styleClass="form-control" value="#"
+					styleClass="form-control" value="#{climaController.clima.c_Clima}"
 					required="true" />
 				<h:outputLabel for="nombreMotor" value="Nombres "
 					styleClass="control-label" />
 
 				<p:inputText autocomplete="off" id="nombreMotor"
 					styleClass="form-control"
-					value="#" maxlength="30"
+					value="#{climaController.clima.n_Clima}" maxlength="30"
 					required="true" requiredMessage="Nombre vacío*"></p:inputText>
 				<p:message for="nombreMotor" style="color:red" />
 
@@ -30,7 +30,7 @@
 					styleClass="control-label" />
 
 				<p:calendar id="fechaMotor" pattern="dd/MM/yyyy"
-					value=""
+					value="#{climaController.clima.d_Creacion}"
 					showOn="button" timeZone="UTC" required="true"
 					requiredMessage="fecha vacía">
 				</p:calendar>
@@ -39,10 +39,10 @@
 				<br />
 
 
-				<p:commandButton value="Grabar"
+				<p:commandButton value="#{climaController.insertar()}"
 					actionListener="#"
 					styleClass="btn btn-primary " update="@form"
-					action="listMotor?faces-redirect=true" />
+					action="listclima?faces-redirect=true" />
 
 
 				<p:commandButton value="Cancelar" action="listclima?faces-redirect=true"

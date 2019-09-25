@@ -9,10 +9,10 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import pe.edu.upc.dao.IProductoDao;
-import pe.edu.upc.entity.CProducto;
+import pe.edu.upc.dao.IActividadPesqueraDao;
+import pe.edu.upc.entity.CActividadPesquera;
 
-public class ProductoDaoImpl implements IProductoDao, Serializable{
+public class ActividadPesqueraDaoImpl implements IActividadPesqueraDao, Serializable{
 
 	/**
 	 * 
@@ -23,9 +23,9 @@ public class ProductoDaoImpl implements IProductoDao, Serializable{
 	
 	@Transactional
 	@Override
-	public void insertar(CProducto cproducto) {
+	public void insertar(CActividadPesquera actividad) {
 		try {
-			em.persist(cproducto);
+			em.persist(actividad);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -33,24 +33,24 @@ public class ProductoDaoImpl implements IProductoDao, Serializable{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<CProducto> list() {
-		List<CProducto> lista = new ArrayList<CProducto>();
+	public List<CActividadPesquera> listar() {
+		List<CActividadPesquera> lista = new ArrayList<CActividadPesquera>();
 		try {
-			Query q = em.createQuery("select p from Producto p");
-			lista = (List<CProducto>) q.getResultList();
+			Query q = em.createQuery("select p from ActividadPesquera p");
+			lista = (List<CActividadPesquera>) q.getResultList();
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		return lista;
 	}
-
+	
 	@Transactional
 	@Override
-	public void Eliminar(int cproducto) {
-		CProducto p = new CProducto();
+	public void eliminar(int actividad) {
+		CActividadPesquera p = new CActividadPesquera();
 		try {
-			p = em.getReference(CProducto.class, cproducto);
+			p = em.getReference(CActividadPesquera.class, actividad);
 			em.remove(p);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

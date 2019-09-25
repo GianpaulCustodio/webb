@@ -20,7 +20,7 @@ public class EmpleadoDaoImpl implements IEmpleadoDao, Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@PersistenceContext(unitName = "migracionPU")
+	@PersistenceContext(unitName = "IncaMar")
 	private EntityManager em;
 
 	@Transactional

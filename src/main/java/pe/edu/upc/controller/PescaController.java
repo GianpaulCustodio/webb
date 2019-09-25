@@ -1,6 +1,8 @@
 package pe.edu.upc.controller;
 
 import java.io.Serializable;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,7 @@ import javax.inject.Named;
 import pe.edu.upc.entity.CEspecie;
 import pe.edu.upc.entity.CHerramienta;
 import pe.edu.upc.entity.CEmpleado;
+import pe.edu.upc.dao.IActividadPesqueraDao;
 import pe.edu.upc.entity.CActividadPesquera;
 import pe.edu.upc.entity.CPesca;
 
@@ -19,7 +22,7 @@ import pe.edu.upc.service.IEspecieService;
 import pe.edu.upc.service.IPescaService;
 import pe.edu.upc.service.IHerramientaService;
 import pe.edu.upc.service.IEmpleadoService;
-import pe.edu.upc.service.IActividadPesqueraService;
+
 
 
 @Named
@@ -36,7 +39,7 @@ public class PescaController implements Serializable {
 	@Inject
 	private IEmpleadoService emS;
 	@Inject
-	private IActividadPesquera apS;
+	private IActividadPesqueraDao apS;
 	
 	
 	
@@ -75,7 +78,7 @@ public class PescaController implements Serializable {
 		this.listActividadesPesqueras();
 	}
 
-	// metodos
+	// metodoss
 	public String newCPesca() {
 		this.setPesca(new CPesca());
 		return "pesca.xhtml";
@@ -131,7 +134,7 @@ public class PescaController implements Serializable {
 
 	public void listActividadesPesqueras() {
 		try {
-			listActividadesPesqueras = apS.list();
+			listActividadesPesqueras = apS.listar();
 		} catch (Exception e) {
 			e.getMessage();
 		}
