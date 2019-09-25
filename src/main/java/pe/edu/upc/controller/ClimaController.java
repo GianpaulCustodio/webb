@@ -50,7 +50,7 @@ public class ClimaController implements Serializable {
 	public void insertar() {
 		try {
 
-			cs.insertar(clima);
+			cs.insertar(clima, clima);
 			limpiarClima();
 
 			this.listar();
@@ -61,7 +61,7 @@ public class ClimaController implements Serializable {
 	@Transactional
 	public void eliminar(CClima mo) {
 		try {
-			cs.eliminar(mo.getC_Clima());
+			cs.eliminar(mo.getC_Clima(), 0);
 			listar();
 		} catch (Exception e) {
 			e.getMessage();

@@ -19,8 +19,9 @@ public class ClimaServiceImpl implements IClimaService{
 	private IClimaDao cd;
 
 	@Override
-	public void insertar(CClima C_Clima) {
-		cd.insertar(C_Clima);
+	public void insertar(CClima C_Clima , CClima T_Clima) {
+		cd.insertar(C_Clima,T_Clima);
+	
 		
 	}
 
@@ -31,8 +32,8 @@ public class ClimaServiceImpl implements IClimaService{
 	}
 
 	@Override
-	public void eliminar(int C_Clima) {
-		cd.eliminar(C_Clima);
+	public void eliminar(int C_Clima , int T_Clima) {
+		cd.eliminar(C_Clima,T_Clima);
 		
 	}
 

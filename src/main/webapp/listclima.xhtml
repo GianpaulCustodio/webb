@@ -35,6 +35,9 @@
 							<p:column headerText="Nombre" sortBy="#{clima.n_Clima}">
 								<h:outputText value="#{clima.n_Clima}" />
 							</p:column>
+							<p:column headerText="Temperatura" sortBy="#{clima.t_Clima}">
+								<h:outputText value="#{clima.t_Clima}" />
+							</p:column>
 							<p:column headerText="Fecha " sortBy="#{clima.d_Creacion}">
 								<h:outputText value="#{clima.d_Creacion}">
 									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
