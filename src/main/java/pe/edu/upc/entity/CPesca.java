@@ -81,4 +81,12 @@ public class CPesca implements Serializable {
 		this.herramienta = herramienta;
 	}
 
+	public int getCPesca() {
+		return CPesca;
+	}
+
+	public void setCPesca(int cPesca) {
+		CPesca = cPesca;
+	}
+
 }
