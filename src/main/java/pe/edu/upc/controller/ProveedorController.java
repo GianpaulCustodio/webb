@@ -1,6 +1,7 @@
 package pe.edu.upc.controller;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import javax.inject.Named;
 
 import pe.edu.upc.entity.CProveedor;
 import pe.edu.upc.service.IProveedorService;
+
 @Named
 @RequestScoped
 public class ProveedorController implements Serializable {
@@ -61,7 +63,6 @@ public class ProveedorController implements Serializable {
 				cProveedor.setD_Creacion(provee.getD_Creacion());
 				cProveedor.setF_Eliminar(provee.getF_Eliminar());
 			}
-			
 		}
 		limpiarProveedor();
 		this.listar();
@@ -116,11 +117,11 @@ public class ProveedorController implements Serializable {
 		this.provee = proveedor;
 	}
 
-	public List<CProveedor> getListaMotores() {
+	public List<CProveedor> getListaProveedores() {
 		return listaProveedores;
 	}
 
-	public void setListaMotores(List<CProveedor> listaProveedores) {
+	public void setListaProveedores(List<CProveedor> listaProveedores) {
 		this.listaProveedores = listaProveedores;
 	}
 }
