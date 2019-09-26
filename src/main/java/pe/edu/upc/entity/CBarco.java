@@ -27,6 +27,7 @@ public class CBarco implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int C_Barco;
+	
 	@Column(name = "N_Barco",nullable = false , length = 50)
 	private String N_Barco;
 	

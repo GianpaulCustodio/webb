@@ -13,55 +13,53 @@
 				<div class="col-sm-4">
 					<div class="form-group">
 						<h:outputLabel for="nombres" value="Búsqueda"
-						styleClass="control-label" />
+							styleClass="control-label" />
 						<p:inputText autocomplete="off" id="nombres"
-							styleClass="form-control"
-							value="#" maxlength="120" />
+							styleClass="form-control" value="#" maxlength="120" />
 					</div>
 				</div>
-				<div>
-
-				</div>
+				<div></div>
 				<div class="col-sm-8 text-right">
 					<div class="form-group box-main-btn">
 						<span style="display: block; height: 30px;"></span>
-						<p:commandButton value="Limpiar" update="lstclima"	
-							styleClass="btn btn-default" ajax="false" /><!-- actionListener="#{motorController.cleanMotor()}" -->
-						<p:commandButton value="Buscar" update="lstclima"
-							styleClass="btn btn-default btn-border" ajax="true" /><!-- actionListener="#{motorController.findByName()}" -->
+						<p:commandButton value="Limpiar" update="lstproveedor"
+							actionListener="#{proveedorController.limpiarProveedor()}"
+							styleClass="btn btn-default" ajax="false" />
+						>
+						<p:commandButton value="Buscar" update="lstproveedor"
+							styleClass="btn btn-default btn-border" ajax="true" />
+						<!-- actionListener="#{motorController.findByName()}" -->
 						<p:commandButton value="Nuevo"
-							action="#"
+							action="#{proveedorController.nuevoProveedor()}"
 							styleClass="btn btn-primary" ajax="false" />
 					</div>
 				</div>
-		</div>
+			</div>
 
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
-						<p:dataTable id="lstclima" var="clim"
-							value="#" paginator="true"
+						<p:dataTable id="lstproveedor" var="proveedor"
+							value="#{proveedorController.listaProveedores}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25,30"
 							rows="5" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#">
-								<h:outputText value="#" />
+							<p:column headerText="Id" sortBy="#{proveedor.c_Proveedor}">
+								<h:outputText value="#{proveedor.c_Proveedor}" />
 							</p:column>
-
-							<p:column headerText="Nombre" sortBy="#">
-								<h:outputText value="#" />
+							<p:column headerText="Nombre" sortBy="#{proveedor.n_Proveedor}">
+								<h:outputText value="#{proveedor.n_Proveedor}" />
 							</p:column>
-							<p:column headerText="Fecha "
-								sortBy="">
-								<h:outputText value="">
+							<p:column headerText="Fecha " sortBy="#{proveedor.d_Creacion}">
+								<h:outputText value="#{proveedor.d_Creacion}">
 									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
 								</h:outputText>
 							</p:column>
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="listclima" value="Eliminar"
-									 /><!--actionListener="#{motorController.delete(mot)}"  -->
+								<h:commandLink action="listproveedor" value="Eliminar"
+									actionListener="#{proveedorController.eliminar(proveedor)}" />
 							</p:column>
 
 
@@ -69,13 +67,12 @@
 						<h:outputLabel value="#" />
 						<h:commandLink>
 							<p:outputLabel value="ExportarExcel"></p:outputLabel>
-							<p:dataExporter type="xls" target="lstclima"
+							<p:dataExporter type="xls" target="lstproveedor"
 								fileName="ExcelWeb" pageOnly="false" />
 						</h:commandLink>
 						<h:commandLink>
 							<p:outputLabel value="ExportarPdf"></p:outputLabel>
-							<p:dataExporter type="pdf" target="lstclima"
-								fileName="PdfWeb" />
+							<p:dataExporter type="pdf" target="lstproveedor" fileName="PdfWeb" />
 						</h:commandLink>
 					</div>
 

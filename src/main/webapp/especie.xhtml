@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+	<ui:define name="contenido">
+		<h:form>
+			<div>
+				<h:outputLabel for="CEspecie" value="Id " styleClass="control-label" />
+
+				<p:inputText autocomplete="off" id="idEspecie"
+					styleClass="form-control" value="#{especieController.especie.c_Especie}"
+					required="true" />
+					
+				<h:outputLabel for="nombreEspecie" value="Nombres "
+					styleClass="control-label" />
+				<p:inputText autocomplete="off" id="nombreEspecie"
+					styleClass="form-control"
+					value="#{especieController.especie.n_Especie}" maxlength="30"
+					required="true" requiredMessage="Nombre vacío*"></p:inputText>
+				<p:message for="nombreEspecie" style="color:red" />
+				
+				
+				
+
+				<h:outputLabel for="fechaespecie" value="Fecha "
+					styleClass="control-label" />
+				<p:calendar id="fechaespecie" pattern="dd/MM/yyyy"
+					value="#{especieController.especie.d_Creacion}"
+					showOn="button" timeZone="UTC" required="true"
+					requiredMessage="fecha vacía">
+				</p:calendar>
+				<p:message for="fechaespecie" style="color:red" />
+				
+				
+				
+				
+
+				<br />
+
+
+				<p:commandButton value="Grabar"
+					actionListener="#{especieController.insertar()}"
+					styleClass="btn btn-primary " update="@form"
+					action="listespecie?faces-redirect=true" />
+					
+				<p:commandButton value="Cancelar" action="listespecie?faces-redirect=true"
+					immediate="true" styleClass="btn btn-default" ajax="false" />
+			</div>
+		</h:form>
+
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

@@ -56,8 +56,8 @@ public class BarcoController implements Serializable {
 		this.listPuerto = new ArrayList<>();
 
 		this.listar();
-		this.listEmpresa();
-		this.listPuerto();
+		this.listEmpresaMet();
+		this.listPuertos();
 	}
 
 	//// METODOS
@@ -94,7 +94,7 @@ public class BarcoController implements Serializable {
 	public void cleanBarco() {
 		this.init();
 	}
-	public void listEmpresa() {
+	public void listEmpresaMet() {
 		try {
 			listEmpresa = es.listar();
 		} catch (Exception e) {
@@ -102,7 +102,7 @@ public class BarcoController implements Serializable {
 		}
 	}
 	
-	public void listPuerto() {
+	public void listPuertos() {
 		try {
 			listPuerto = ps.listar();
 		} catch (Exception e) {

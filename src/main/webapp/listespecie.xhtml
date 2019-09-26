@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="master.xhtml">
+	<ui:define name="contenido">
+		<h:form>
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="form-group">
+						<h:outputLabel for="nombres" value="Búsqueda"
+						styleClass="control-label" />
+						<p:inputText autocomplete="off" id="nombres"
+							styleClass="form-control"
+							value="#" maxlength="120" />
+					</div>
+				</div>
+				<div>
+
+				</div>
+				<div class="col-sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<span style="display: block; height: 30px;"></span>
+						<p:commandButton value="Limpiar" update="lstespecie"	actionListener="#{especieController.limpiarEspecie()}"
+							styleClass="btn btn-default" ajax="false" />>
+						<p:commandButton value="Buscar" update="lstespecie" 
+							styleClass="btn btn-default btn-border" ajax="true" /><!-- actionListener="#{motorController.findByName()}" -->
+						<p:commandButton value="Nuevo"
+							action="#{especieController.nuevoEspecie()}"
+							styleClass="btn btn-primary" ajax="false" />
+					</div>
+				</div>
+		</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="lstespecie" var="especie"
+							value="#{especieController.listaEspecies}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25,30"
+							rows="5" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Id" sortBy="#{especie.c_Especie}">
+								<h:outputText value="#{especie.c_Especie}" />
+							</p:column>
+							<p:column headerText="Nombre" sortBy="#{especie.n_Especie}">
+								<h:outputText value="#{especie.n_Especie}" />
+							</p:column>
+							<p:column headerText="Fecha "
+								sortBy="#{especie.d_Creacion}">
+								<h:outputText value="#{especie.d_Creacion}">
+									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
+								</h:outputText>
+							</p:column>
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="listespecie" value="Eliminar" actionListener="#{especieController.eliminar(especie)}"/>
+							</p:column>
+
+
+						</p:dataTable>
+						<h:outputLabel value="#" />
+						<h:commandLink>
+							<p:outputLabel value="ExportarExcel"></p:outputLabel>
+							<p:dataExporter type="xls" target="lstespecie"
+								fileName="ExcelWeb" pageOnly="false" />
+						</h:commandLink>
+						<h:commandLink>
+							<p:outputLabel value="ExportarPdf"></p:outputLabel>
+							<p:dataExporter type="pdf" target="lstespecie"
+								fileName="PdfWeb" />
+						</h:commandLink>
+					</div>
+
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

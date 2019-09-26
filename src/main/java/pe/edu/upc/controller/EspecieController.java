@@ -5,11 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import pe.edu.upc.entity.CEspecie;
 import pe.edu.upc.service.IEspecieService;
 
+@Named
+@RequestScoped
 public class EspecieController implements Serializable {
 
 	/**
@@ -28,7 +32,7 @@ public class EspecieController implements Serializable {
 		this.listar();
 	}
 	/////////
-	public String nuevoPuesto() {
+	public String nuevoEspecie() {
 		this.setEspecie(new CEspecie());
 		return "especie.xhtml";
 	}

@@ -10,7 +10,6 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import pe.edu.upc.dao.IEmpresaDao;
-import pe.edu.upc.entity.CClima;
 import pe.edu.upc.entity.CEmpresa;
 
 public class EmpresaDaoImpl implements IEmpresaDao, Serializable{

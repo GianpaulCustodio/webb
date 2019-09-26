@@ -6,51 +6,48 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <ui:composition template="master.xhtml">
-
-	<ui:define name="title">
-        .:Registro de Proveedores:.
-    </ui:define>
-
-	<ui:define name="titleCont">
-		<span>Proveedor</span>
-	</ui:define>
-
-	<ui:define name="content">
+	<ui:define name="contenido">
 		<h:form>
-			<h:outputLabel for="cProveedor" value="Id " styleClass="control-label" />
+			<div>
+				<h:outputLabel for="C_Proveedor" value="Id " styleClass="control-label" />
 
-			<p:inputText autocomplete="off" id="idProvee"
-				styleClass="form-control"
-				value="#{proveedorController.proveedor.c_Proveedor}" required="true" />
-			<h:outputLabel for="NombreProveedor" value="Nombres "
-				styleClass="control-label" />
+				<p:inputText autocomplete="off" id="Empresa"
+					styleClass="form-control" value="#{proveedorController.proveedor.c_Proveedor}"
+					required="true" />
+					
+				<h:outputLabel for="nombreProveedor" value="Nombres "
+					styleClass="control-label" />
+				<p:inputText autocomplete="off" id="nombreProveedor"
+					styleClass="form-control"
+					value="#{proveedorController.proveedor.n_Proveedor}" maxlength="30"
+					required="true" requiredMessage="Nombre vacío*"></p:inputText>
+				<p:message for="nombreProveedor" style="color:red" />
+				
+	
 
-			<p:inputText autocomplete="off" id="nombreProvee"
-				styleClass="form-control"
-				value="#{proveedorController.proveedor.n_Proveedor}"
-				maxlength="30" required="true"/>
-			
-			<h:outputLabel for="fechaprovee" value="Fecha "
-				styleClass="control-label" />
+				<h:outputLabel for="fechaproveedor" value="Fecha "
+					styleClass="control-label" />
+				<p:calendar id="fechaproveedor" pattern="dd/MM/yyyy"
+					value="#{proveedorController.proveedor.d_Creacion}"
+					showOn="button" timeZone="UTC" required="true"
+					requiredMessage="fecha vacía">
+				</p:calendar>
+				<p:message for="fechaproveedor" style="color:red" />
+				
+				
+				<br />
 
-			<p:calendar id="fechaprovee" pattern="dd/MM/yyyy"
-				value="#{proveedorController.proveedor.d_Creacion}"
-				showOn="button" timeZone="UTC" required="true">
-			</p:calendar>
-			<br />
-			
 
-			<p:commandButton value="Grabar"
-				actionListener="#{proveedorController.insertar()}"
-				styleClass="btn btn-primary " update="@form"
-				action="listproveedor?faces-redirect=true" />
-			<p:commandButton value="Cancelar"
-				action="listproveedor?faces-redirect=true" immediate="true"
-				styleClass="btn btn-default" ajax="false" />
-
-			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
-
+				<p:commandButton value="Grabar"
+					actionListener="#{proveedorController.insertar()}"
+					styleClass="btn btn-primary " update="@form"
+					action="listproveedor?faces-redirect=true" />
+					
+				<p:commandButton value="Cancelar" action="listproveedor?faces-redirect=true"
+					immediate="true" styleClass="btn btn-default" ajax="false" />
+			</div>
 		</h:form>
+
 	</ui:define>
 
 	<ui:define name="footerCont">
