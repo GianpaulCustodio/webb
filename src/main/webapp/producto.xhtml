@@ -20,7 +20,7 @@
 				styleClass="control-label" />
 
 
-			<p:inputText autocomplete="off" id="NombreBarco"
+			<p:inputText autocomplete="off" id="NombreProducto"
 				styleClass="form-control" value="#{productoController.producto.n_Producto}"
 				maxlength="30" required="true" />
 
@@ -51,12 +51,12 @@
 			</p:calendar>
 
 
-
 			<br />
 			<p:commandButton value="Grabar"
 				actionListener="#{productoController.insert()}"
 				styleClass="btn btn-primary " update="@form"
 				action="listproducto?faces-redirect=true" />
+				
 			<p:commandButton value="Cancelar"
 				action="listproducto?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />

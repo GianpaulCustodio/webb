@@ -9,13 +9,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.primefaces.expression.impl.ThisExpressionResolver;
-
-import pe.edu.upc.entity.CBarco;
 import pe.edu.upc.entity.CEspecie;
 import pe.edu.upc.entity.CProducto;
 import pe.edu.upc.entity.CProveedor;
-
 import pe.edu.upc.service.IEspecieService;
 import pe.edu.upc.service.IProductoService;
 import pe.edu.upc.service.IProveedorService;

@@ -93,6 +93,57 @@ public class CBarco implements Serializable {
 	public void setF_Eliminar(Boolean f_Eliminar) {
 		F_Eliminar = f_Eliminar;
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + C_Barco;
+		result = prime * result + ((D_Creacion == null) ? 0 : D_Creacion.hashCode());
+		result = prime * result + ((F_Eliminar == null) ? 0 : F_Eliminar.hashCode());
+		result = prime * result + ((N_Barco == null) ? 0 : N_Barco.hashCode());
+		result = prime * result + ((empresa == null) ? 0 : empresa.hashCode());
+		result = prime * result + ((puerto == null) ? 0 : puerto.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CBarco other = (CBarco) obj;
+		if (C_Barco != other.C_Barco)
+			return false;
+		if (D_Creacion == null) {
+			if (other.D_Creacion != null)
+				return false;
+		} else if (!D_Creacion.equals(other.D_Creacion))
+			return false;
+		if (F_Eliminar == null) {
+			if (other.F_Eliminar != null)
+				return false;
+		} else if (!F_Eliminar.equals(other.F_Eliminar))
+			return false;
+		if (N_Barco == null) {
+			if (other.N_Barco != null)
+				return false;
+		} else if (!N_Barco.equals(other.N_Barco))
+			return false;
+		if (empresa == null) {
+			if (other.empresa != null)
+				return false;
+		} else if (!empresa.equals(other.empresa))
+			return false;
+		if (puerto == null) {
+			if (other.puerto != null)
+				return false;
+		} else if (!puerto.equals(other.puerto))
+			return false;
+		return true;
+	}
+	
 }
 	
 	
