@@ -9,41 +9,45 @@
 	<ui:define name="contenido">
 		<h:form>
 			<div>
-				<h:outputLabel for="C_Proveedor" value="Id " styleClass="control-label" />
+				<h:outputLabel for="CEspecie" value="Id " styleClass="control-label" />
 
-				<p:inputText autocomplete="off" id="Empresa"
-					styleClass="form-control" value="#{proveedorController.proveedor.c_Proveedor}"
+				<p:inputText autocomplete="off" id="idEspecie"
+					styleClass="form-control" value="#{especieController.especie.c_Especie}"
 					required="true" />
 					
-				<h:outputLabel for="nombreProveedor" value="Nombres "
+				<h:outputLabel for="nombreEspecie" value="Nombres "
 					styleClass="control-label" />
-				<p:inputText autocomplete="off" id="nombreProveedor"
+				<p:inputText autocomplete="off" id="nombreEspecie"
 					styleClass="form-control"
-					value="#{proveedorController.proveedor.n_Proveedor}" maxlength="30"
+					value="#{especieController.especie.n_Especie}" maxlength="30"
 					required="true" requiredMessage="Nombre vacío*"></p:inputText>
-				<p:message for="nombreProveedor" style="color:red" />
+				<p:message for="nombreEspecie" style="color:red" />
 				
-	
+				
+				
 
-				<h:outputLabel for="fechaproveedor" value="Fecha "
+				<h:outputLabel for="fechaespecie" value="Fecha "
 					styleClass="control-label" />
-				<p:calendar id="fechaproveedor" pattern="dd/MM/yyyy"
-					value="#{proveedorController.proveedor.d_Creacion}"
+				<p:calendar id="fechaespecie" pattern="dd/MM/yyyy"
+					value="#{especieController.especie.d_Creacion}"
 					showOn="button" timeZone="UTC" required="true"
 					requiredMessage="fecha vacía">
 				</p:calendar>
-				<p:message for="fechaproveedor" style="color:red" />
+				<p:message for="fechaespecie" style="color:red" />
 				
 				
+				
+				
+
 				<br />
 
 
 				<p:commandButton value="Grabar"
-					actionListener="#{proveedorController.insertar()}"
+					actionListener="#{especieController.insertar()}"
 					styleClass="btn btn-primary " update="@form"
-					action="listproveedor?faces-redirect=true" />
+					action="listespecie?faces-redirect=true" />
 					
-				<p:commandButton value="Cancelar" action="listproveedor?faces-redirect=true"
+				<p:commandButton value="Cancelar" action="listespecie?faces-redirect=true"
 					immediate="true" styleClass="btn btn-default" ajax="false" />
 			</div>
 		</h:form>
