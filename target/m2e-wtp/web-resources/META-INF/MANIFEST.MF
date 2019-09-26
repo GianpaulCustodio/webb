@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: anton
-=======
-Built-By: Omar Gabriel
->>>>>>> 47cba13aa7d3b53b5b6cc75d8ebbd27ad3ebe314
 Build-Jdk: 1.8.0_221
 Created-By: Maven Integration for Eclipse
 
