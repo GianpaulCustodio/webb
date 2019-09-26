@@ -23,11 +23,11 @@ public class EmpresaController implements Serializable{
 	@Inject
 	private IEmpresaService es;
     private CEmpresa empresa;
-	List<CEmpresa> listaEmpresas;
+	List<CEmpresa> listaEmpresa;
 	
 	@PostConstruct
 	public void init() {
-		this.listaEmpresas = new ArrayList<CEmpresa>();
+		this.listaEmpresa = new ArrayList<CEmpresa>();
 		this.empresa = new CEmpresa();
 		this.listar();
 		
@@ -45,11 +45,11 @@ public class EmpresaController implements Serializable{
 	}
 
 	public List<CEmpresa> getListaEmpresas() {
-		return listaEmpresas;
+		return listaEmpresa;
 	}
 
 	public void setListaEmpresas(List<CEmpresa> listaEmpresas) {
-		this.listaEmpresas = listaEmpresas;
+		this.listaEmpresa = listaEmpresas;
 	}
      //METODOSSSSSS
 	public String NuevoEmpresa() {
@@ -58,7 +58,7 @@ public class EmpresaController implements Serializable{
 		}
 	public void listar() {
 		try {
-			listaEmpresas = es.listar();
+			listaEmpresa = es.listar();
 		} catch (Exception e) {
 			e.getMessage();
 		}
