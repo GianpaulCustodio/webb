@@ -12,6 +12,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import pe.edu.upc.dao.IRolDao;
+import pe.edu.upc.entity.CEmpresa;
 import pe.edu.upc.entity.Rol;
 import pe.edu.upc.entity.User;
 import pe.edu.upc.entity.UserRol;
@@ -64,6 +65,26 @@ public class RolDaoImpl implements IRolDao, Serializable {
 
 		return Optional.of(rol);
 	}
+	
+	
+	
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Rol> listar() {
+		List<Rol> lista = new ArrayList<Rol>();
+		try {
+			Query q = em.createQuery("select cl from CEmpresa cl");
+			lista = (List<Rol>) q.getResultList();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return lista;
+	}
+	
+	
+	
 
 	public Integer insertUserRole(List<UserRol> userRoles) throws Exception {
 		try {

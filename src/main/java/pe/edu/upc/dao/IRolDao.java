@@ -3,6 +3,7 @@ package pe.edu.upc.dao;
 import java.util.List;
 import java.util.Optional;
 
+import pe.edu.upc.entity.CEmpresa;
 import pe.edu.upc.entity.Rol;
 import pe.edu.upc.entity.User;
 import pe.edu.upc.entity.UserRol;
@@ -16,6 +17,8 @@ public interface IRolDao {
 	Integer delete(Rol rol) throws Exception;
 
 	List<Rol> findAll() throws Exception;
+	
+	List<Rol>listar();
 
 	Optional<Rol> findById(Rol rol) throws Exception;
 

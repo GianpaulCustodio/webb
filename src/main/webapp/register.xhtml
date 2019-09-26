@@ -63,6 +63,7 @@
 						<f:validateLength minimum="3" />
 					</p:inputText>
 					<p:message for="txtCountry" display="icon" />
+
 					<h:column />
 					<h:column />
 					<h:outputText id="display" />
@@ -100,9 +101,11 @@
 					<h:column />
 
 				</h:panelGrid>
+			
 
 				<p:commandButton value="Inicio" action="index?faces-redirect=true"
-					immediate="true" styleClass="btn btn-primary" />
+					immediate="true" styleClass="btn btn-primary" /> 
+		
 				<p:commandButton value="Registrar" update="frm"
 					action="#{registerController.registerUser()}"
 					styleClass="btn btn-primary" icon="pi pi-check" />

@@ -1,6 +1,7 @@
 package pe.edu.upc.serviceimpl;
 
 import java.io.Serializable;
+
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -9,6 +10,7 @@ import javax.inject.Named;
 
 import pe.edu.upc.dao.IPuertoDao;
 import pe.edu.upc.entity.CPuerto;
+
 import pe.edu.upc.service.IPuertoService;
 
 
@@ -34,4 +36,17 @@ public class PuertoServiceImpl implements IPuertoService,Serializable{
 	public void eliminar(int c_Puerto) {
 		pD.eliminar(c_Puerto);
 	}
+	
+	
+	@Override
+	public void Modificar(CPuerto puerto)
+	{
+		try {
+			pD.modificar(puerto);
+			
+		}catch (Exception e) {
+			e.getMessage();
+			}
+	}
+	
 }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -30,14 +31,34 @@ public class RegisterController implements Serializable {
 
 	@Inject
 	private IRolService rS;
-
+	private List<Rol> listaroles;
 	private Empleado empleado;
 	private User user;
-
+	private Rol rol;
 	@PostConstruct
 	public void init() {
+		this.rol= new Rol();
+		this.listaroles= new ArrayList<>();
 		this.empleado = new Empleado();
 		this.user = new User();
+		this.listaroles= new ArrayList<>();
+		this.listar();
+	}
+
+	public void listar() {
+		try {
+			listaroles = rS.listar();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	}
+	
+	public List<Rol> getListaroles() {
+		return listaroles;
+	}
+
+	public void setListaroles(List<Rol> listaroles) {
+		this.listaroles = listaroles;
 	}
 
 	public String registerUser() {
@@ -63,6 +84,14 @@ public class RegisterController implements Serializable {
 		}
 
 		return redirect;
+	}
+
+	public Rol getRol() {
+		return rol;
+	}
+
+	public void setRol(Rol rol) {
+		this.rol = rol;
 	}
 
 	public Empleado getEmpleado() {

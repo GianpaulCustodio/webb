@@ -25,13 +25,16 @@
 						<p:commandButton value="Limpiar" update="lstpuerto"
 							actionListener="#{puertoController.limpiarPuerto()}"
 							styleClass="btn btn-default" ajax="false" />
-						>
+
+						
+
 						<p:commandButton value="Buscar" update="lstpuerto"
 							styleClass="btn btn-default btn-border" ajax="true" />
 						<!-- actionListener="#{motorController.findByName()}" -->
 						<p:commandButton value="Nuevo"
 							action="#{puertoController.nuevoPuerto()}"
 							styleClass="btn btn-primary" ajax="false" />
+
 					</div>
 				</div>
 			</div>
@@ -58,8 +61,12 @@
 								</h:outputText>
 							</p:column>
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="listclima" value="Eliminar"
+								<h:commandLink action="listclima" value="Eliminar" style="color:blue;"
 									actionListener="#{puertoController.eliminar(puerto)}" />
+									<br />
+								<h:commandLink value="Modificar" style="color:blue;"
+									action="#{puertoController.Modifmotor(puerto)}" />
+
 							</p:column>
 
 

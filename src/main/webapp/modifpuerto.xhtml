@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="contenido">
+		<h:form>
+			
+			<h:outputLabel for="idPuerto" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idPuerto"
+				styleClass="form-control" 
+				value="#{puertoController.puerto.c_Puerto}" required="true" />
+			<h:outputLabel for="Nombre Puerto" value="Nombres "
+				styleClass="control-label" />
+		
+			<h:outputLabel for="Nombre Puerto" value="Nombres "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="nombreMotor"
+				styleClass="form-control"
+				style="margin-bottom:20px;"
+				value="#{puertoController.puerto.n_Puerto}"
+				maxlength="30" required="true"/>
+
+			<h:outputLabel for="fechaMotor" value="Fecha "
+				styleClass="control-label" />
+
+			<p:calendar id="fechaMotor" pattern="dd/MM/yyyy"
+				value="#{puertoController.puerto.d_Creacion}"
+				
+				showOn="button" timeZone="UTC" required="true">
+			</p:calendar>
+			<br />
+			
+
+			<p:commandButton value="Modificar"
+				actionListener="#{puertoController.modificar()}"
+				style="margin-bottom:20px;"
+				styleClass="btn btn-primary " update="@form"
+				action="listpuerto?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listpuerto?faces-redirect=true" immediate="true"
+				style="margin-bottom:20px;"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

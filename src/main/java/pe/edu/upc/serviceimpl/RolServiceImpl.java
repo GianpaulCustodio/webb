@@ -1,6 +1,7 @@
 package pe.edu.upc.serviceimpl;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -10,6 +11,7 @@ import javax.inject.Named;
 import javax.transaction.Transactional;
 
 import pe.edu.upc.dao.IRolDao;
+
 import pe.edu.upc.entity.Rol;
 import pe.edu.upc.entity.User;
 import pe.edu.upc.entity.UserRol;
@@ -22,6 +24,7 @@ public class RolServiceImpl implements IRolService, Serializable {
 
 	@Inject
 	private IRolDao rD;
+
 
 	@Transactional
 	@Override
@@ -71,6 +74,12 @@ public class RolServiceImpl implements IRolService, Serializable {
 	@Override
 	public List<UserRol> findUserRolesByUser(User user) throws Exception {
 		return rD.findUserRolesByUser(user);
+	}
+	
+	@Override
+	public List<Rol> listar() {
+		// TODO Auto-generated method stub
+		return rD.listar();
 	}
 
 }

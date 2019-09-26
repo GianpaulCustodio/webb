@@ -109,7 +109,7 @@ public class MasterController implements Serializable {
 			rol = "AP";
 			break;
 		case "/puerto.xhtml":
-			rol = "APR";
+			rol = "AP";
 			break;
 		case "/clima.xhtml":
 			rol = "AP,JP";

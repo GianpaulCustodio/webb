@@ -1,6 +1,7 @@
 package pe.edu.upc.controller;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import javax.inject.Named;
 
 
 import pe.edu.upc.entity.CPuerto;
+
 import pe.edu.upc.service.IPuertoService;
 
 @Named
@@ -34,6 +36,23 @@ public class PuertoController implements Serializable {
 		this.listar();
 	}
 	
+	
+	public void modificar() {
+		try {
+			puService.Modificar(this.puerto);
+			limpiarPuerto();
+			this.listar();
+			
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		
+	}
+	public String Modifmotor(CPuerto puerto) {
+		this.setPuerto(puerto);
+		return "modifpuerto.xhtml";
+		
+	}
 	// metodos
 	public String nuevoPuerto() {
 		this.setPuerto(new CPuerto());

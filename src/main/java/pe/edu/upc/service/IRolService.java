@@ -22,4 +22,6 @@ public interface IRolService {
 
 	List<UserRol> findUserRolesByUser(User user) throws Exception;
 
+	List<Rol> listar();
+
 }
