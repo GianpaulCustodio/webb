@@ -1,6 +1,8 @@
 package pe.edu.upc.entity;
 
-import java.io.Serializable;
+import java.io.Serializable
+
+;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -29,11 +31,11 @@ public class CBarco implements Serializable {
 	private String N_Barco;
 	
 	@ManyToOne
-	@JoinColumn(name = "N_Puerto", nullable = false)
+	@JoinColumn(name = "C_Puerto", nullable = false)
 	private CPuerto puerto;
 	
 	@ManyToOne
-	@JoinColumn(name = "N_Empresa", nullable = false)
+	@JoinColumn(name = "C_Empresa", nullable = false)
 	private CEmpresa empresa;
 	
 	
@@ -43,12 +45,12 @@ public class CBarco implements Serializable {
 			Boolean f_Eliminar) {
 		super();
 		
-		C_Barco = c_Barco;
-		N_Barco = n_Barco;
+		this.C_Barco = c_Barco;
+		this.N_Barco = n_Barco;
 		this.empresa = empresa;
 		this.puerto = puerto;
-		D_Creacion = d_Creacion;
-		F_Eliminar = f_Eliminar;
+		this.D_Creacion = d_Creacion;
+		this.F_Eliminar = f_Eliminar;
 	}
 	public int getC_Barco() {
 		return C_Barco;

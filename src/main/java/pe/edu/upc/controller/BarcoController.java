@@ -1,11 +1,12 @@
 package pe.edu.upc.controller;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -18,7 +19,7 @@ import pe.edu.upc.service.IEmpresaService;
 import pe.edu.upc.service.IPuertoService;
 
 @Named
-@SessionScoped
+@RequestScoped
 public class BarcoController implements Serializable {
 
 	/**
@@ -33,7 +34,6 @@ public class BarcoController implements Serializable {
 	private IPuertoService ps;
 
 	@Inject
-
 	private IBarcoService bs;
 
 	private CBarco barco;
@@ -47,15 +47,15 @@ public class BarcoController implements Serializable {
 	@PostConstruct
 	public void init() {
 
-		barco = new CBarco();
-		empresa = new CEmpresa();
-		puerto = new CPuerto();
+		this.barco = new CBarco();
+		this.empresa = new CEmpresa();
+		this.puerto = new CPuerto();
 
-		listBarco = new ArrayList<>();
-		listEmpresa = new ArrayList<>();
-		listPuerto = new ArrayList<>();
+		this.listBarco = new ArrayList<>();
+		this.listEmpresa = new ArrayList<>();
+		this.listPuerto = new ArrayList<>();
 
-		this.listBarco();
+		this.listar();
 		this.listEmpresa();
 		this.listPuerto();
 	}
@@ -70,7 +70,7 @@ public class BarcoController implements Serializable {
 		try {
 			bs.insert(barco);
 			cleanBarco();
-			this.listBarco();
+			this.listar();
 		} catch (Exception e) {
 			e.getMessage();
 		}
@@ -78,12 +78,12 @@ public class BarcoController implements Serializable {
 	public void delete(CBarco barco) {
 		try {
 			bs.delete(barco.getC_Barco());
-			listBarco();
+			listar();
 		} catch (Exception e) {
 			e.getMessage();
 		}
 	}
-	public void listBarco() {
+	public void listar() {
 		try {
 			listBarco = bs.list();
 		} catch (Exception e) {
