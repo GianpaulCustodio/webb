@@ -36,7 +36,7 @@ public class ProductoDaoImpl implements IProductoDao, Serializable{
 	public List<CProducto> list() {
 		List<CProducto> lista = new ArrayList<CProducto>();
 		try {
-			Query q = em.createQuery("select p from Producto p");
+			Query q = em.createQuery("select p from CProducto p");
 			lista = (List<CProducto>) q.getResultList();
 
 		} catch (Exception e) {
