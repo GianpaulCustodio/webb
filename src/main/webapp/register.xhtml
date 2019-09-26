@@ -24,7 +24,7 @@
 				<h:panelGrid id="pg" columns="4">
 					<p:outputLabel for="txtName" value="Nombres" />
 					<p:inputText id="txtName"
-						value="#{registerController.customer.name}" required="true"
+						value="#{registerController.empleado.name}" required="true"
 						styleClass="form-control">
 						<f:validateLength minimum="3" />
 					</p:inputText>
@@ -33,7 +33,7 @@
 
 					<p:outputLabel for="txtAddress" value="Dirección" />
 					<p:inputText id="txtAddress"
-						value="#{registerController.customer.address}" counter="display"
+						value="#{registerController.empleado.address}" counter="display"
 						rows="5" cols="30" maxlength="250"
 						counterTemplate="{0} caracteres restantes." autoResize="false"
 						required="true" styleClass="form-control">
@@ -44,7 +44,7 @@
 					<h:column />
 
 					<p:outputLabel for="txtDni" value="Dni" />
-					<p:inputText id="txtDni" value="#{registerController.customer.dni}"
+					<p:inputText id="txtDni" value="#{registerController.empleado.dni}"
 						counter="display" rows="5" cols="30" maxlength="250"
 						counterTemplate="{0} caracteres restantes." autoResize="false"
 						required="true" styleClass="form-control">
@@ -56,7 +56,7 @@
 
 					<p:outputLabel for="txtCountry" value="Pais" />
 					<p:inputText id="txtCountry"
-						value="#{registerController.customer.country}" counter="display"
+						value="#{registerController.empleado.country}" counter="display"
 						rows="5" cols="30" maxlength="250"
 						counterTemplate="{0} caracteres restantes." autoResize="false"
 						required="true" styleClass="form-control">

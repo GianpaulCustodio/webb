@@ -23,7 +23,7 @@ public class User implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL)
 	@MapsId
 	@JoinColumn(name = "id", nullable = false)
-	private Customer customer;
+	private Empleado empleado;
 
 	@Column(name = "username", nullable = false, length = 30)
 	private String username;
@@ -42,12 +42,12 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public Empleado getEmpleado() {
+		return empleado;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setEmpleado(Empleado empleado) {
+		this.empleado = empleado;
 	}
 
 	public String getUsername() {

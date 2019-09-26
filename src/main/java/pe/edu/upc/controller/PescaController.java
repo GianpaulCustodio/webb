@@ -3,6 +3,7 @@ package pe.edu.upc.controller;
 import java.io.Serializable;
 
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,6 @@ import javax.inject.Named;
 
 import pe.edu.upc.entity.CEspecie;
 import pe.edu.upc.entity.CHerramienta;
-import pe.edu.upc.entity.CEmpleado;
 import pe.edu.upc.dao.IActividadPesqueraDao;
 import pe.edu.upc.entity.CActividadPesquera;
 import pe.edu.upc.entity.CPesca;
@@ -21,7 +21,7 @@ import pe.edu.upc.entity.CPesca;
 import pe.edu.upc.service.IEspecieService;
 import pe.edu.upc.service.IPescaService;
 import pe.edu.upc.service.IHerramientaService;
-import pe.edu.upc.service.IEmpleadoService;
+
 
 
 
@@ -36,8 +36,7 @@ public class PescaController implements Serializable {
 	private IPescaService pS;
 	@Inject
 	private IHerramientaService hS;
-	@Inject
-	private IEmpleadoService emS;
+	
 	@Inject
 	private IActividadPesqueraDao apS;
 	
@@ -46,13 +45,13 @@ public class PescaController implements Serializable {
 	private CEspecie especie;
 	private CPesca pesca;
 	private CHerramienta herramienta;
-	private CEmpleado empleado;
+
 	private CActividadPesquera actividadpesquera;
 	
 	private List<CEspecie> listEspecies;
 	private List<CPesca> listPescas;
 	private List<CHerramienta> listHerramientas;
-	private List<CEmpleado> listEmpleados;
+
 	private List<CActividadPesquera> listActividadesPesqueras;
 
 	@PostConstruct
@@ -60,21 +59,21 @@ public class PescaController implements Serializable {
 		especie = new CEspecie();
 		pesca = new CPesca();
 		herramienta = new CHerramienta();
-		empleado = new CEmpleado();
+
 		actividadpesquera = new CActividadPesquera();
 		
 		
 		 listEspecies = new ArrayList<>();
 		 listPescas = new ArrayList<>();
 		listHerramientas = new ArrayList<>();
-		 listEmpleados = new ArrayList<>();
+
 		 listActividadesPesqueras = new ArrayList<>();
 	
 		
 		this.listEspecie();
 		this.listPesca();
 		this.listHerramienta();
-		this.listEmpleado();
+
 		this.listActividadesPesquera();
 	}
 
@@ -139,13 +138,7 @@ public class PescaController implements Serializable {
 			e.getMessage();
 		}
 	}
-	public void listEmpleado() {
-		try {
-			listEmpleados = emS.listar();
-		} catch (Exception e) {
-			e.getMessage();
-		}
-	}
+
 	
 
 	//get y set
@@ -174,13 +167,7 @@ public class PescaController implements Serializable {
 		this.herramienta = herramienta;
 	}
 
-	public CEmpleado getEmpleado() {
-		return empleado;
-	}
 
-	public void setEmpleado(CEmpleado empleado) {
-		this.empleado = empleado;
-	}
 
 	public CActividadPesquera getActividadpesquera() {
 		return actividadpesquera;
@@ -214,13 +201,7 @@ public class PescaController implements Serializable {
 		this.listHerramientas = listHerramientas;
 	}
 
-	public List<CEmpleado> getListEmpleados() {
-		return listEmpleados;
-	}
 
-	public void setListEmpleados(List<CEmpleado> listEmpleados) {
-		this.listEmpleados = listEmpleados;
-	}
 
 	public List<CActividadPesquera> getListActividadesPesqueras() {
 		return listActividadesPesqueras;

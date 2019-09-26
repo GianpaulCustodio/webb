@@ -27,13 +27,13 @@ public class UserDaoImpl implements IUserDao, Serializable {
 	@Override
 	public Integer insert(User t) throws Exception {
 		em.persist(t);
-		return t.getCustomer().getId();
+		return t.getEmpleado().getId();
 	}
 
 	@Override
 	public Integer update(User t) throws Exception {
 		em.merge(t);
-		return t.getCustomer().getId();
+		return t.getEmpleado().getId();
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class UserDaoImpl implements IUserDao, Serializable {
 
 		User user;
 		TypedQuery<User> query = em.createQuery("SELECT u FROM User u WHERE u.id = ?1", User.class);
-		query.setParameter(1, t.getCustomer().getId());
+		query.setParameter(1, t.getEmpleado().getId());
 
 		user = query.getSingleResult();
 

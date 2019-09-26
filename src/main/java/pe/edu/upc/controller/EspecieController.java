@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.transaction.Transactional;
 
 import pe.edu.upc.entity.CEspecie;
 import pe.edu.upc.service.IEspecieService;
@@ -57,6 +58,7 @@ public class EspecieController implements Serializable {
 			e.getMessage();
 		}
 	}
+	@Transactional
 	public void eliminar(CEspecie mo) {
 		try {
 			eS.eliminar(mo.getC_Especie());

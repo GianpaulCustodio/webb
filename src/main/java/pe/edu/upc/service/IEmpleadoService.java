@@ -1,19 +1,25 @@
 package pe.edu.upc.service;
 
 import java.util.List;
+
 import java.util.Optional;
 
-import pe.edu.upc.entity.CEmpleado;
+
+import pe.edu.upc.entity.Empleado;
 
 public interface IEmpleadoService {
-	public void insertar(CEmpleado empleado);
+	Integer insert(Empleado customer) throws Exception;
 
-	public List<CEmpleado> listar();
+	Integer update(Empleado customer) throws Exception;
 
-	public void eliminar(int c_empleado);
-	
-	Optional<CEmpleado> getOne(CEmpleado empleado) throws Exception;
+	Integer delete(Empleado customer) throws Exception;
 
-	Optional<CEmpleado> authentication(CEmpleado empleado) throws Exception;
-	
+	List<Empleado> getAll() throws Exception;
+
+	Optional<Empleado> getOne(Empleado customer) throws Exception;
+
+	List<Empleado> findCustomerByName(String name) throws Exception;
+
+	Optional<Empleado> findCustomerByDni(String dni) throws Exception;
+
 }

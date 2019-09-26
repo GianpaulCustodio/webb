@@ -22,9 +22,9 @@ public class CPesca implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int CPesca;
 
-	@ManyToOne
-	@JoinColumn(name = "C_Empleado", nullable = false)
-	private CEmpleado empleado;
+	//@ManyToOne
+	//@JoinColumn(name = "C_Empleado", nullable = false)
+	//private CEmpleado empleado;
 
 	@ManyToOne
 	@JoinColumn(name = "C_Actividad", nullable = false)
@@ -38,9 +38,9 @@ public class CPesca implements Serializable {
 	@JoinColumn(name = "C_Herramienta", nullable = false)
 	private CHerramienta herramienta;
 
-	public CPesca(CEmpleado empleado, CActividadPesquera actividad, CEspecie especie, CHerramienta herramienta) {
+	public CPesca( CActividadPesquera actividad, CEspecie especie, CHerramienta herramienta) { //CEmpleado empleado
 		super();
-		this.empleado = empleado;
+	//	this.empleado = empleado;
 		this.actividad = actividad;
 		this.especie = especie;
 		this.herramienta = herramienta;
@@ -58,13 +58,9 @@ public class CPesca implements Serializable {
 		CPesca = cPesca;
 	}
 
-	public CEmpleado getEmpleado() {
-		return empleado;
-	}
 
-	public void setEmpleado(CEmpleado empleado) {
-		this.empleado = empleado;
-	}
+
+
 
 	public CActividadPesquera getActividad() {
 		return actividad;

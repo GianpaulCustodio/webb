@@ -1,6 +1,7 @@
 package pe.edu.upc.controller;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,16 +13,16 @@ import javax.inject.Named;
 import pe.edu.upc.entity.CActividadPesquera;
 import pe.edu.upc.entity.CBarco;
 import pe.edu.upc.entity.CClima;
-import pe.edu.upc.entity.CEmpleado;
+
 import pe.edu.upc.entity.CEmpresa;
 import pe.edu.upc.entity.CPesca;
 import pe.edu.upc.entity.CProducto;
-import pe.edu.upc.entity.CPuesto;
+
 import pe.edu.upc.entity.CTipoPesca;
 import pe.edu.upc.service.IActividadPesqueraService;
 import pe.edu.upc.service.IBarcoService;
 import pe.edu.upc.service.IClimaService;
-import pe.edu.upc.service.IEmpleadoService;
+
 import pe.edu.upc.service.IProductoService;
 import pe.edu.upc.service.ITipoPescaService;
 
@@ -42,8 +43,7 @@ public class ActividadPesqueraController implements Serializable{
 	private IClimaService cS;
 	@Inject
 	private ITipoPescaService tS;
-	@Inject
-	private IEmpleadoService eS;
+
 	@Inject
 	private IProductoService proS;
 	

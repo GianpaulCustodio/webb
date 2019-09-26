@@ -1,20 +1,24 @@
 package pe.edu.upc.dao;
 
 import java.util.List;
+
 import java.util.Optional;
 
-import pe.edu.upc.entity.CEmpleado;
+
+import pe.edu.upc.entity.Empleado;
 
 public interface IEmpleadoDao {
+	Integer insert(Empleado empleado) throws Exception;
 
-	public void insertar(CEmpleado c_empleado);
+	Integer update(Empleado empleado) throws Exception;
 
-	public List<CEmpleado> listar();
+	Integer delete(Empleado empleado) throws Exception;
 
-	public void eliminar(int c_empleado);
-	
-	String getPassworHashedByUserName(String n_empleado) throws Exception;
-	
-	Optional<CEmpleado> findById(CEmpleado empleado) throws Exception;
-	Optional<CEmpleado> findUserByUsername(CEmpleado empleado) throws Exception;
+	List<Empleado> findAll() throws Exception;
+
+	Optional<Empleado> findById(Empleado empleado) throws Exception;
+
+	List<Empleado> findByName(String name) throws Exception;
+
+	Optional<Empleado> findByDni(String dni) throws Exception;
 }

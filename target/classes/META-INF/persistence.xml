@@ -7,7 +7,6 @@
 		<class>pe.edu.upc.entity.CBarco</class>
 		<class>pe.edu.upc.entity.CEmpresa</class>
 		<class>pe.edu.upc.entity.CTipoPesca</class>
-		<class>pe.edu.upc.entity.CPuesto</class>
 		<class>pe.edu.upc.entity.CClima</class>
 		<class>pe.edu.upc.entity.CEspecie</class>
 		<properties>

@@ -1,6 +1,7 @@
 package pe.edu.upc.controller;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,10 +12,11 @@ import javax.inject.Named;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-import pe.edu.upc.entity.Customer;
+import pe.edu.upc.entity.Empleado;
 import pe.edu.upc.entity.Rol;
 import pe.edu.upc.entity.User;
-import pe.edu.upc.service.ICustomerService;
+
+import pe.edu.upc.service.IEmpleadoService;
 import pe.edu.upc.service.IRolService;
 
 @Named
@@ -24,17 +26,17 @@ public class RegisterController implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private ICustomerService cS;
+	private IEmpleadoService cS;
 
 	@Inject
 	private IRolService rS;
 
-	private Customer customer;
+	private Empleado empleado;
 	private User user;
 
 	@PostConstruct
 	public void init() {
-		this.customer = new Customer();
+		this.empleado = new Empleado();
 		this.user = new User();
 	}
 
@@ -45,9 +47,9 @@ public class RegisterController implements Serializable {
 			String passwordHash = BCrypt.hashpw(password, BCrypt.gensalt());
 			this.user.setPassword(passwordHash);
 			this.user.setState("A");
-			this.customer.setUser(user);
-			this.user.setCustomer(customer);
-			this.cS.insert(customer);
+			this.empleado.setUser(user);
+			this.user.setEmpleado(empleado);
+			this.cS.insert(empleado);
 
 			List<Rol> roles = new ArrayList<Rol>();
 			int TIPO_USUARIO = 1;
@@ -63,12 +65,12 @@ public class RegisterController implements Serializable {
 		return redirect;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public Empleado getEmpleado() {
+		return empleado;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public void setCustomer(Empleado empleado) {
+		this.empleado = empleado;
 	}
 
 	public User getUser() {

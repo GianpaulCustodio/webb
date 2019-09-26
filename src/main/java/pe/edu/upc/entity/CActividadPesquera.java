@@ -34,9 +34,9 @@ public class CActividadPesquera implements Serializable
 	@ManyToOne
 	@JoinColumn(name = "C_TipoPesca", nullable = false)
 	private CTipoPesca C_TipoPesca;
-	@ManyToOne
-	@JoinColumn(name = "C_Empleado", nullable = false)
-	private CEmpleado C_Empleado;
+	//@ManyToOne
+	//@JoinColumn(name = "C_Empleado", nullable = false)
+	//private CEmpleado C_Empleado;
 	@ManyToOne
 	@JoinColumn(name = "C_Producto", nullable = false)
 	private CProducto C_Producto;
@@ -52,16 +52,15 @@ public class CActividadPesquera implements Serializable
 	@Column(name = "F_Eliminar", nullable = false, length = 50)
 	private Boolean F_Eliminar;
 	
-	
+	//CEmpleado c_Empleado,
 	public CActividadPesquera(int c_Actividad, CBarco c_Barco, CClima c_Clima, CTipoPesca c_TipoPesca,
-			CEmpleado c_Empleado, CProducto c_Producto, int q_PesoPesca, Boolean f_Vacio, Date d_Pesca, Date d_Creacion,
+			 CProducto c_Producto, int q_PesoPesca, Boolean f_Vacio, Date d_Pesca, Date d_Creacion,
 			Boolean f_Eliminar) {
 		super();
 		C_Actividad = c_Actividad;
 		C_Barco = c_Barco;
 		C_Clima = c_Clima;
 		C_TipoPesca = c_TipoPesca;
-		C_Empleado = c_Empleado;
 		C_Producto = c_Producto;
 		Q_PesoPesca = q_PesoPesca;
 		F_Vacio = f_Vacio;
@@ -135,13 +134,7 @@ public class CActividadPesquera implements Serializable
 		C_TipoPesca = c_TipoPesca;
 	}
 
-	public CEmpleado getC_Empleado() {
-		return C_Empleado;
-	}
 
-	public void setC_Empleado(CEmpleado c_Empleado) {
-		C_Empleado = c_Empleado;
-	}
 
 	public CProducto getC_Producto() {
 		return C_Producto;

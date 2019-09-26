@@ -16,8 +16,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "customers")
-public class Customer implements Serializable {
+@Table(name = "empleado")
+public class Empleado implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -38,7 +38,7 @@ public class Customer implements Serializable {
 	private String country;
 
 	
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "customer")
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "empleado")
 	private User user;
 
 	

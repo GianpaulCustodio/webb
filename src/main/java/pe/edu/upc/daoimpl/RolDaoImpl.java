@@ -1,6 +1,7 @@
 package pe.edu.upc.daoimpl;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -88,7 +89,7 @@ public class RolDaoImpl implements IRolDao, Serializable {
 
 		try {
 			Query query = em.createQuery("FROM UserRol ur where ur.user.customer.id =?1");
-			query.setParameter(1, user.getCustomer().getId());
+			query.setParameter(1, user.getEmpleado().getId());
 
 			userRoles = (List<UserRol>) query.getResultList();
 
