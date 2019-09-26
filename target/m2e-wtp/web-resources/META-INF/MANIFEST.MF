@@ -1,5 +1,13 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: anton
+=======
+<<<<<<< HEAD
+Built-By: ALE
+=======
+Built-By: LuisDO
+>>>>>>> 88be6f2b6936688de9e60090134e67e1256e1f6e
+>>>>>>> 1808c28238914624cafa85c2f49deab592f5c00f
 Build-Jdk: 1.8.0_221
 Created-By: Maven Integration for Eclipse
 
