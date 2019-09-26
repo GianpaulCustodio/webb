@@ -1,6 +1,7 @@
 package pe.edu.upc.entity;
 
 import java.io.Serializable;
+
 import java.util.Date;
 
 import javax.persistence.Column;
