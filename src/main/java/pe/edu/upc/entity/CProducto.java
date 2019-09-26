@@ -33,9 +33,9 @@ public class CProducto implements Serializable {
 	private CProveedor C_Proveedor;
 	@Column(name = "N_Producto", nullable = false, length = 80)
 	private String N_Producto;
-	@Column(name = "D_Creacion", nullable = false, length = 80)
+
+
 	private Date D_Creacion;
-	@Column(name = "F_Eliminar", nullable = false, length = 80)
 	private Boolean F_Eliminar;
 	
 	public CProducto(int c_Producto, String n_Producto, Date d_Creacion, Boolean f_Eliminar,CEspecie _especie, CProveedor _cproveedor) {

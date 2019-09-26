@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="master.xhtml">
+
+	<ui:define name="contenido">
+		<h:form>
+			<h:outputLabel for="idPesca" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idPesca"
+				styleClass="form-control" value="#{pescaController.newCPesca()}"
+				required="true" />
+
+
+
+			<h:outputLabel for="IdPesca" value="Id "
+				styleClass="control-label" />
+
+
+			<p:inputText autocomplete="off" id="IdPesca"
+				styleClass="form-control" value="#{pescaController.pesca.CPesca}"
+				maxlength="30" required="true" />
+
+			<p:outputLabel for="cboEspecie" value="Especie" />
+			<p:selectOneMenu id="cboEspecie"
+				value="#{pescaController.pesca.especie}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{pescaController.listEspecies}" var="em"
+					itemLabel="#{em.n_Especie}" itemValue="#{em}" />
+			</p:selectOneMenu>
+
+			<p:outputLabel for="cboActividad" value="Actividad " />
+			<p:selectOneMenu id="cboActividad"
+				value="#{pescaController.pesca.actividad}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{pescaController.listActividadesPesqueras}" var="pu"
+					itemLabel="#{pu.c_Actividad}" itemValue="#{pu}" />
+			</p:selectOneMenu>
+			
+			<p:outputLabel for="cboEmpleado" value="Empleado " />
+			<p:selectOneMenu id="cboEmpleado"
+				value="#{pescaController.pesca.empleado}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{pescaController.listEmpleados}" var="pu"
+					itemLabel="#{pu.n_Empleado}" itemValue="#{pu}" />
+			</p:selectOneMenu>
+			
+			<p:outputLabel for="cboHerramienta" value="Herramienta " />
+			<p:selectOneMenu id="cboHerramienta"
+				value="#{pescaController.pesca.herramienta}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{pescaController.listHerramientas}" var="pu"
+					itemLabel="#{pu.n_Herramienta}" itemValue="#{pu}" />
+			</p:selectOneMenu>
+
+
+			<br />
+			<p:commandButton value="Grabar"
+				actionListener="#{pescaController.insert()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listpesca?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listpesca?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+		</h:form>
+	</ui:define>
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

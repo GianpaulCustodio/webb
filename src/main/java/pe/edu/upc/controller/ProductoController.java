@@ -11,8 +11,7 @@ import javax.inject.Named;
 
 import org.primefaces.expression.impl.ThisExpressionResolver;
 
-
-
+import pe.edu.upc.entity.CBarco;
 import pe.edu.upc.entity.CEspecie;
 import pe.edu.upc.entity.CProducto;
 import pe.edu.upc.entity.CProveedor;
@@ -63,9 +62,9 @@ public class ProductoController implements Serializable {
 		listProveedor = new ArrayList<>();
 		
 		
-	this.listProducto();
-	this.listEspecie();
-	this.listProveedor();
+	this.listProductos();
+	this.listEspecies();
+	this.listProveedors();
 	}
 
 ///////METODOS
@@ -79,12 +78,20 @@ public class ProductoController implements Serializable {
 		try {
 			pservice.Insertar(producto);
 			cleanProducto();
-			this.listProducto();
+			this.listProductos();
 		} catch (Exception e) {
 			e.getMessage();
 		}
 	}
-	public void listProducto() {
+	public void eliminar(CProducto producto) {
+		try {
+			pservice.Eliminar(producto.getC_Producto());
+			listProductos();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	}
+	public void listProductos() {
 		try {
 			listProducto = pservice.list();
 		} catch (Exception e) {
@@ -94,14 +101,14 @@ public class ProductoController implements Serializable {
 	public void cleanProducto() {
 		this.init();
 	}
-	public void listEspecie() {
+	public void listEspecies() {
 		try {
 			listEspecie = eservice.listar();
 		} catch (Exception e) {
 			e.getMessage();
 		}
 	}
-	public void listProveedor() {
+	public void listProveedors() {
 		try {
 			listProveedor = oservice.listar();
 		} catch (Exception e) {

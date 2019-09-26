@@ -75,7 +75,7 @@ public class PescaController implements Serializable {
 		this.listPesca();
 		this.listHerramienta();
 		this.listEmpleado();
-		this.listActividadesPesqueras();
+		this.listActividadesPesquera();
 	}
 
 	// metodoss
@@ -132,7 +132,7 @@ public class PescaController implements Serializable {
 		}
 	}
 
-	public void listActividadesPesqueras() {
+	public void listActividadesPesquera() {
 		try {
 			listActividadesPesqueras = apS.listar();
 		} catch (Exception e) {
