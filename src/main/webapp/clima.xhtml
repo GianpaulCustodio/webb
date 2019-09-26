@@ -14,37 +14,48 @@
 				<p:inputText autocomplete="off" id="idMotor"
 					styleClass="form-control" value="#{climaController.clima.c_Clima}"
 					required="true" />
-				<h:outputLabel for="nombreMotor" value="Nombres "
+					
+				<h:outputLabel for="nombreClima" value="Nombres "
 					styleClass="control-label" />
-
-				<p:inputText autocomplete="off" id="nombreMotor"
+				<p:inputText autocomplete="off" id="nombreClima"
 					styleClass="form-control"
 					value="#{climaController.clima.n_Clima}" maxlength="30"
 					required="true" requiredMessage="Nombre vacío*"></p:inputText>
-				<p:message for="nombreMotor" style="color:red" />
-
-
-
-
-				<h:outputLabel for="fechaMotor" value="Fecha "
+				<p:message for="nombreClima" style="color:red" />
+				
+				
+				<h:outputLabel for="Temperatura" value="Tmperatura "
 					styleClass="control-label" />
+				<p:inputText autocomplete="off" id="Temperatura"
+					styleClass="form-control"
+					value="#{climaController.clima.t_Clima}" maxlength="30"
+					required="true" requiredMessage="Nombre vacío*"></p:inputText>
+				<p:message for="Temperatura" style="color:red" />
+				
+				
+				
 
-				<p:calendar id="fechaMotor" pattern="dd/MM/yyyy"
+				<h:outputLabel for="fechaclima" value="Fecha "
+					styleClass="control-label" />
+				<p:calendar id="fechaclima" pattern="dd/MM/yyyy"
 					value="#{climaController.clima.d_Creacion}"
 					showOn="button" timeZone="UTC" required="true"
 					requiredMessage="fecha vacía">
 				</p:calendar>
-				<p:message for="fechaMotor" style="color:red" />
+				<p:message for="fechaclima" style="color:red" />
+				
+				
+				
+				
 
 				<br />
 
 
-				<p:commandButton value="#{climaController.insertar()}"
-					actionListener="#"
+				<p:commandButton value="Grabar"
+					actionListener="#{climaController.insertar()}"
 					styleClass="btn btn-primary " update="@form"
 					action="listclima?faces-redirect=true" />
-
-
+					
 				<p:commandButton value="Cancelar" action="listclima?faces-redirect=true"
 					immediate="true" styleClass="btn btn-default" ajax="false" />
 			</div>

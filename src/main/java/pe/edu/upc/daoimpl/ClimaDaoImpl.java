@@ -32,7 +32,7 @@ public class ClimaDaoImpl implements IClimaDao, Serializable {
 	}
 
 	
-	@SuppressWarnings({ "unchecked", "unused" })
+	@SuppressWarnings({ "unchecked"})
 	@Override
 	public List<CClima> listar() {
 		List<CClima> lista = new ArrayList<CClima>();

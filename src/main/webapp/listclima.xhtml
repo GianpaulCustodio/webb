@@ -26,8 +26,8 @@
 					<div class="form-group box-main-btn">
 						<span style="display: block; height: 30px;"></span>
 						<p:commandButton value="Limpiar" update="lstclima"	actionListener="#{climaController.limpiarClima()}"
-							styleClass="btn btn-default" ajax="false" /><!-- actionListener="#{motorController.cleanMotor()" -->
-						<p:commandButton value="Buscar" update="lstclima" actionListener="#"
+							styleClass="btn btn-default" ajax="false" />>
+						<p:commandButton value="Buscar" update="lstclima" 
 							styleClass="btn btn-default btn-border" ajax="true" /><!-- actionListener="#{motorController.findByName()}" -->
 						<p:commandButton value="Nuevo"
 							action="#{climaController.nuevoClima()}"
@@ -59,8 +59,7 @@
 								</h:outputText>
 							</p:column>
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="listclima" value="Eliminar" actionListener="#{climaController.eliminar(clim)}"
-									 /><!--actionListener="#{motorController.delete(mot)}"  -->
+								<h:commandLink action="listclima" value="Eliminar" actionListener="#{climaController.eliminar(clima)}"/>
 							</p:column>
 
 
