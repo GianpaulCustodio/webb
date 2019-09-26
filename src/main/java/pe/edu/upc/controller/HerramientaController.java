@@ -5,11 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import pe.edu.upc.entity.CHerramienta;
 import pe.edu.upc.service.IHerramientaService;
 
+@Named
+@SessionScoped
 public class HerramientaController implements Serializable {
 
 	/**
