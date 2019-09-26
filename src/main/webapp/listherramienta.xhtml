@@ -13,53 +13,53 @@
 				<div class="col-sm-4">
 					<div class="form-group">
 						<h:outputLabel for="nombres" value="Búsqueda"
-							styleClass="control-label" />
+						styleClass="control-label" />
 						<p:inputText autocomplete="off" id="nombres"
-							styleClass="form-control" value="#" maxlength="120" />
+							styleClass="form-control"
+							value="#" maxlength="120" />
 					</div>
 				</div>
-				<div></div>
+				<div>
+
+				</div>
 				<div class="col-sm-8 text-right">
 					<div class="form-group box-main-btn">
 						<span style="display: block; height: 30px;"></span>
-						<p:commandButton value="Limpiar" update="lstpuerto"
-							actionListener="#{puertoController.limpiarPuerto()}"
-							styleClass="btn btn-default" ajax="false" />
-						>
-						<p:commandButton value="Buscar" update="lstpuerto"
-							styleClass="btn btn-default btn-border" ajax="true" />
-						<!-- actionListener="#{motorController.findByName()}" -->
+						<p:commandButton value="Limpiar" update="DtHerramienta"	actionListener="#{herramientaController.limpiarHerramienta()}"
+							styleClass="btn btn-default" ajax="false" />>
+						<p:commandButton value="Buscar" update="DtHerramienta" 
+							styleClass="btn btn-default btn-border" ajax="true" /><!-- actionListener="#{motorController.findByName()}" -->
 						<p:commandButton value="Nuevo"
-							action="#{puertoController.nuevoPuerto()}"
+							action="#{herramientaController.nuevaHerramienta()}"
 							styleClass="btn btn-primary" ajax="false" />
 					</div>
 				</div>
-			</div>
+		</div>
 
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
-						<p:dataTable id="lstpuerto" var="puerto"
-							value="#{puertoController.listaPuertos}" paginator="true"
+						<p:dataTable id="DtHerramienta" var="herramienta"
+							value="#{herramientaController.listaHerramientas}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25,30"
 							rows="5" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{puerto.c_Puerto}">
-								<h:outputText value="#{puerto.c_Puerto}" />
+							<p:column headerText="Id" sortBy="#{herramienta.c_Herramienta}">
+								<h:outputText value="#{herramienta.c_Herramienta}" />
 							</p:column>
-							<p:column headerText="Nombre" sortBy="#{puerto.n_Puerto}">
-								<h:outputText value="#{puerto.n_Puerto}" />
+							<p:column headerText="Nombre" sortBy="#{herramienta.n_Herramienta}">
+								<h:outputText value="#{herramienta.n_Herramienta}" />
 							</p:column>
-							<p:column headerText="Fecha " sortBy="#{puerto.d_Creacion}">
-								<h:outputText value="#{puerto.d_Creacion}">
+							<p:column headerText="Fecha "
+								sortBy="#{herramienta.d_Herramienta}">
+								<h:outputText value="#{herramienta.d_Herramienta}">
 									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
 								</h:outputText>
 							</p:column>
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="listclima" value="Eliminar"
-									actionListener="#{puertoController.eliminar(puerto)}" />
+								<h:commandLink action="listclima" value="Eliminar" actionListener="#{herramientaController.eliminar(herramienta)}"/>
 							</p:column>
 
 
@@ -67,12 +67,13 @@
 						<h:outputLabel value="#" />
 						<h:commandLink>
 							<p:outputLabel value="ExportarExcel"></p:outputLabel>
-							<p:dataExporter type="xls" target="lstpuerto" fileName="ExcelWeb"
-								pageOnly="false" />
+							<p:dataExporter type="xls" target="DtHerramienta"
+								fileName="ExcelWeb" pageOnly="false" />
 						</h:commandLink>
 						<h:commandLink>
 							<p:outputLabel value="ExportarPdf"></p:outputLabel>
-							<p:dataExporter type="pdf" target="lstpuerto" fileName="PdfWeb" />
+							<p:dataExporter type="pdf" target="DtHerramienta"
+								fileName="PdfWeb" />
 						</h:commandLink>
 					</div>
 

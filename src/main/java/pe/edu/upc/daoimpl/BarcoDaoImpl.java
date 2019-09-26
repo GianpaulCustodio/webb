@@ -1,6 +1,7 @@
 package pe.edu.upc.daoimpl;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,7 +49,7 @@ public class BarcoDaoImpl implements IBarcoDao, Serializable {
 		}
 		return lista;
 	}
-
+    @Transactional 
 	@Override
 	public void delete(int CBarco){
 		CBarco b = new CBarco();

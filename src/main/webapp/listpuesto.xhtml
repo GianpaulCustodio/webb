@@ -25,12 +25,12 @@
 				<div class="col-sm-8 text-right">
 					<div class="form-group box-main-btn">
 						<span style="display: block; height: 30px;"></span>
-						<p:commandButton value="Limpiar" update="lstclima"	
-							styleClass="btn btn-default" ajax="false" /><!-- actionListener="#{motorController.cleanMotor()}" -->
-						<p:commandButton value="Buscar" update="lstclima"
+						<p:commandButton value="Limpiar" update="lstpuesto"	actionListener="#{puestoController.limpiarPuesto()}"
+							styleClass="btn btn-default" ajax="false" />>
+						<p:commandButton value="Buscar" update="lstpuesto" 
 							styleClass="btn btn-default btn-border" ajax="true" /><!-- actionListener="#{motorController.findByName()}" -->
 						<p:commandButton value="Nuevo"
-							action="#"
+							action="#{puestoController.nuevoPuesto()}"
 							styleClass="btn btn-primary" ajax="false" />
 					</div>
 				</div>
@@ -39,29 +39,27 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
-						<p:dataTable id="lstclima" var="clim"
-							value="#" paginator="true"
+						<p:dataTable id="lstpuesto" var="puesto"
+							value="#{puestoController.listaPuestos}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="5,10,15,20,25,30"
 							rows="5" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#">
-								<h:outputText value="#" />
+							<p:column headerText="Id" sortBy="#{puesto.c_Puesto}">
+								<h:outputText value="#{puesto.c_Puesto}" />
 							</p:column>
-
-							<p:column headerText="Nombre" sortBy="#">
-								<h:outputText value="#" />
+							<p:column headerText="Nombre" sortBy="#{puesto.n_Puesto}">
+								<h:outputText value="#{puesto.n_Puesto}" />
 							</p:column>
 							<p:column headerText="Fecha "
-								sortBy="">
-								<h:outputText value="">
+								sortBy="#{puesto.d_Creacion}">
+								<h:outputText value="#{puesto.d_Creacion}">
 									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
 								</h:outputText>
 							</p:column>
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="listclima" value="Eliminar"
-									 /><!--actionListener="#{motorController.delete(mot)}"  -->
+								<h:commandLink action="listpuesto" value="Eliminar" actionListener="#{puestoController.eliminar(puesto)}"/>
 							</p:column>
 
 
@@ -69,12 +67,12 @@
 						<h:outputLabel value="#" />
 						<h:commandLink>
 							<p:outputLabel value="ExportarExcel"></p:outputLabel>
-							<p:dataExporter type="xls" target="lstclima"
+							<p:dataExporter type="xls" target="lstpuesto"
 								fileName="ExcelWeb" pageOnly="false" />
 						</h:commandLink>
 						<h:commandLink>
 							<p:outputLabel value="ExportarPdf"></p:outputLabel>
-							<p:dataExporter type="pdf" target="lstclima"
+							<p:dataExporter type="pdf" target="lstpuesto"
 								fileName="PdfWeb" />
 						</h:commandLink>
 					</div>

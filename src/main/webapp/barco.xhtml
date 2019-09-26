@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="master.xhtml">
+
+	<ui:define name="contenido">
+		<h:form>
+			<h:outputLabel for="idBarco" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idBarco"
+				styleClass="form-control" value="#{barcoController.barco.c_Barco}"
+				required="true" />
+
+
+
+			<h:outputLabel for="NombreBarco" value="Nombres "
+				styleClass="control-label" />
+
+
+			<p:inputText autocomplete="off" id="NombreBarco"
+				styleClass="form-control" value="#{barcoController.barco.n_Barco}"
+				maxlength="30" required="true" />
+
+
+
+			<p:outputLabel for="cboEmpresa" value="Empresa" />
+			<p:selectOneMenu id="cboEmpresa"
+				value="#{barcoController.barco.empresa}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{barcoController.listEmpresa}" var="em"
+					itemLabel="#{em.n_Empresa}" itemValue="#{em}" />
+			</p:selectOneMenu>
+
+			<p:outputLabel for="cboPuerto" value="Puerto" />
+			<p:selectOneMenu id="cboPuerto"
+				value="#{barcoController.barco.puerto}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{barcoController.listPuerto}" var="pu"
+					itemLabel="#{pu.n_Puerto}" itemValue="#{pu}" />
+			</p:selectOneMenu>
+
+
+			<h:outputLabel for="fechaprovee" value="Fecha "
+				styleClass="control-label" />
+			<p:calendar id="fechabarco" pattern="dd/MM/yyyy"
+				value="#{barcoController.barco.d_Creacion}" showOn="button"
+				timeZone="UTC" required="true">
+			</p:calendar>
+
+
+
+			<br />
+			<p:commandButton value="Grabar"
+				actionListener="#{barcoController.insert()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listbarco?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listbarco?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+		</h:form>
+	</ui:define>
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

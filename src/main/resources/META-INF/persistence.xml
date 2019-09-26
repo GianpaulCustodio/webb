@@ -4,6 +4,8 @@
 		<jta-data-source>java:/IncamarDS</jta-data-source>
 		<class>pe.edu.upc.entity.CPuerto</class>
 		<class>pe.edu.upc.entity.CProveedor</class>
+		<class>pe.edu.upc.entity.CBarco</class>
+		<class>pe.edu.upc.entity.CEmpresa</class>
 		<class>pe.edu.upc.entity.CTipoPesca</class>
 		<class>pe.edu.upc.entity.CPuesto</class>
 		<class>pe.edu.upc.entity.CClima</class>

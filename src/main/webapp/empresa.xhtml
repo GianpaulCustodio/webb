@@ -9,39 +9,40 @@
 	<ui:define name="contenido">
 		<h:form>
 			<div>
-				<h:outputLabel for="idPuesto" value="Id " styleClass="control-label" />
+				<h:outputLabel for="idEmpresa" value="Id " styleClass="control-label" />
 
-				<p:inputText autocomplete="off" id="idPuesto"
-					styleClass="form-control" value="#{puestoController.puesto.c_Puesto}"
+				<p:inputText autocomplete="off" id="idEmpresa"
+					styleClass="form-control" value="#{empresaController.empresa.c_Empresa}"
 					required="true" />
 					
-				<h:outputLabel for="nombrePuesto" value="Nombres "
+				<h:outputLabel for="nombreEmpresa" value="Nombres "
 					styleClass="control-label" />
-				<p:inputText autocomplete="off" id="nombrePuesto"
+				<p:inputText autocomplete="off" id="nombreEmpresa"
 					styleClass="form-control"
-					value="#{puestoController.puesto.n_Puesto}" maxlength="30"
+					value="#{empresaController.empresa.n_Empresa}" maxlength="30"
 					required="true" requiredMessage="Nombre vacío*"></p:inputText>
-				<p:message for="nombrePuesto" style="color:red" />
+				<p:message for="nombreEmpresa" style="color:red" />
 				
 				
 			
-				<h:outputLabel for="fechapuesto" value="Fecha "
+				<h:outputLabel for="fechaempresa" value="Fecha "
 					styleClass="control-label" />
-				<p:calendar id="fechapuesto" pattern="dd/MM/yyyy"
-					value="#{puestoController.puesto.d_Creacion}"
+				<p:calendar id="fechaempresa" pattern="dd/MM/yyyy"
+					value="#{empresaController.empresa.d_Creacion}"
 					showOn="button" timeZone="UTC" required="true"
 					requiredMessage="fecha vacía">
 				</p:calendar>
-				<p:message for="fechapuesto" style="color:red" />
+				<p:message for="fechaempresa" style="color:red" />
+				
 				
 				<br />
                     
                     <p:commandButton value="Grabar"
-					actionListener="#{puestoController.insertar()}"
+					actionListener="#{empresaController.insertar()}"
 					styleClass="btn btn-primary " update="@form"
-					action="listpuesto?faces-redirect=true" />
+					action="listempresa?faces-redirect=true" />
 					
-				<p:commandButton value="Cancelar" action="listpuesto?faces-redirect=true"
+				<p:commandButton value="Cancelar" action="listempresa?faces-redirect=true"
 					immediate="true" styleClass="btn btn-default" ajax="false" />
 			</div>
 		</h:form>
